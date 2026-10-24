@@ -212,5 +212,66 @@ print(first_eligible_hours.rename("first_eligible_hour").to_string())
 assert len(excluded) + len(eligible) == len(history)
 assert not eligible[required_lags].isna().any().any()
 
+zone_101 = (
+    dense.loc[dense[ZONE].eq(101)]
+    .sort_values(TIME)
+    .set_index(TIME)[TARGET]
+)
 
+origin = pd.Timestamp("2024-01-01 02:00")
 
+# At the forecast origin, only earlier counts are available as model inputs.
+observed = zone_101.loc[zone_101.index < origin].tolist()
+# Keep later actuals separate: they are answers for evaluation, not inputs that
+# a fixed-origin forecast is allowed to see.
+future_actuals = zone_101.loc[zone_101.index >= origin]
+
+print("\nObserved before origin:", observed)
+print("Evaluation actuals:")
+print(future_actuals)
+
+"""
+Keeping future_actuals separately lets us evaluate predictions afterward. Their availability in the file does not authorize using them as inputs at the origin.
+"""
+
+"""
+defining shared forecasting rule
+"""
+def predict_last_two(values):
+    assert len(values) >= 2
+    return sum(values[-2:]) / 2
+
+one_step_history = observed.copy()
+recursive_history = observed.copy()
+
+one_step_predictions = []
+recursive_predictions = []
+
+for timestamp, actual in future_actuals.items():
+    # Rolling one-step evaluation predicts this hour using only data available
+    # before it. After the hour has passed, its actual is observed and can
+    # legitimately become history for predicting the next hour.
+    one_step_prediction = predict_last_two(one_step_history)
+    one_step_predictions.append(one_step_prediction)
+    one_step_history.append(actual)
+
+    # A fixed-origin forecast must not use any future actuals. Extend its
+    # history with the prior prediction instead, so every horizon remains based
+    # only on information available at the original `origin`.
+    recursive_prediction = predict_last_two(recursive_history)
+    recursive_predictions.append(recursive_prediction)
+    recursive_history.append(recursive_prediction)
+
+forecast_table = pd.DataFrame(
+    {
+        "hour": future_actuals.index,
+        "actual": future_actuals.to_numpy(),
+        "one_step_prediction": one_step_predictions,
+        "recursive_prediction": recursive_predictions,
+    }
+)
+print("\nForecast comparison:")
+print(forecast_table)
+
+assert one_step_predictions == [1.0, 2.0]
+assert recursive_predictions == [1.0, 0.5]
