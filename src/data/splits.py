@@ -16,6 +16,39 @@ from src.config import Config, get_config
 logger = logging.getLogger(__name__)
 
 
+def timestamp_group_split(
+    df: pd.DataFrame,
+    time_col: str,
+    *,
+    train_frac: float = 0.8,
+    val_frac: float = 0.1,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Split distinct timestamps, keeping every row at a timestamp together.
+
+    Fractions apply to unique timestamps, not row counts. All three periods
+    must be nonempty. For hourly demand, pass the hour-aligned pickup_hour.
+    This opt-in helper does not change the legacy pipeline's row slicing.
+    """
+    if not (0 < train_frac < 1 and 0 < val_frac < 1
+            and train_frac + val_frac < 1):
+        raise ValueError("Fractions must be positive and leave a test period")
+    if df[time_col].isna().any():
+        raise ValueError("Split timestamps must not be missing")
+    ordered = df.sort_values(time_col, kind="stable").reset_index(drop=True)
+    times = ordered[time_col].drop_duplicates().sort_values().reset_index(drop=True)
+    train_end = int(len(times) * train_frac)
+    val_end = int(len(times) * (train_frac + val_frac))
+    if not (0 < train_end < val_end < len(times)):
+        raise ValueError("Not enough distinct timestamps for three nonempty periods")
+    val_start, test_start = times.iloc[train_end], times.iloc[val_end]
+    return (
+        ordered.loc[ordered[time_col] < val_start].reset_index(drop=True),
+        ordered.loc[(ordered[time_col] >= val_start)
+                    & (ordered[time_col] < test_start)].reset_index(drop=True),
+        ordered.loc[ordered[time_col] >= test_start].reset_index(drop=True),
+    )
+
+
 def time_based_split(
     df: pd.DataFrame,
     time_col: str,

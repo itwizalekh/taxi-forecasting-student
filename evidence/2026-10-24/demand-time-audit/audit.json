@@ -1,0 +1,117 @@
+{
+  "audit_time_utc": "2026-10-24T07:44:44.327927+00:00",
+  "git_head": "62f5836bda6bc730405025462ab07c12c35d7947",
+  "working_tree_status": "M docs/L2_FARE_METRICS_LAB.md\n M src/data/splits.py\n?? evidence/2026-10-24/\n?? scripts/audit_demand_time.py\n?? tests/unit/test_timestamp_group_split.py",
+  "original": {
+    "train": {
+      "rows": 116582,
+      "hours": 461,
+      "first": "2024-01-08 00:00:00",
+      "last": "2024-01-27 04:00:00"
+    },
+    "val": {
+      "rows": 14573,
+      "hours": 59,
+      "first": "2024-01-27 04:00:00",
+      "last": "2024-01-29 14:00:00"
+    },
+    "test": {
+      "rows": 14573,
+      "hours": 58,
+      "first": "2024-01-29 14:00:00",
+      "last": "2024-01-31 23:00:00"
+    }
+  },
+  "strict": {
+    "train": {
+      "rows": 116380,
+      "hours": 460,
+      "first": "2024-01-08 00:00:00",
+      "last": "2024-01-27 03:00:00"
+    },
+    "val": {
+      "rows": 14674,
+      "hours": 58,
+      "first": "2024-01-27 04:00:00",
+      "last": "2024-01-29 13:00:00"
+    },
+    "test": {
+      "rows": 14674,
+      "hours": 58,
+      "first": "2024-01-29 14:00:00",
+      "last": "2024-01-31 23:00:00"
+    }
+  },
+  "strict_directory": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\strict-hourly-v1",
+  "original_boundary_counts": {
+    "train/val:train": 202,
+    "train/val:val": 51,
+    "val/test:test": 152,
+    "val/test:val": 101
+  },
+  "feature_rows_verified": 145728,
+  "zones_verified": 253,
+  "features_checked": {
+    "lag_1": 0.0,
+    "lag_2": 0.0,
+    "lag_3": 0.0,
+    "lag_24": 0.0,
+    "lag_168": 0.0,
+    "rolling_mean_3": 0.0,
+    "rolling_std_3": 2.8783653238662055e-10,
+    "rolling_mean_24": 0.0,
+    "rolling_std_24": 9.121592370320286e-13,
+    "rolling_mean_168": 0.0,
+    "rolling_std_168": 2.2026824808563106e-13
+  },
+  "causality_probe": {
+    "zone": 132,
+    "origin": "2024-01-27 04:00:00",
+    "prior_three_hours": [
+      {
+        "zone": 132,
+        "hour": "2024-01-27 01:00:00",
+        "count": 28
+      },
+      {
+        "zone": 132,
+        "hour": "2024-01-27 02:00:00",
+        "count": 8
+      },
+      {
+        "zone": 132,
+        "hour": "2024-01-27 03:00:00",
+        "count": 6
+      }
+    ],
+    "stored_lag_1": 6.0,
+    "stored_rolling_mean_3": 14.0,
+    "stored_rolling_std_3": 12.165525060602004,
+    "current_future_mutation": "+10000 to targets at/after origin in chosen zone",
+    "predictors_through_origin_unchanged": true,
+    "other_zones_predictors_unchanged": true,
+    "later_own_zone_predictors_changed": true
+  },
+  "checks": "PASS: unique/dense keys, original union, all history features, perturbation, strict separation and exact row conservation",
+  "input_and_code_sha256": {
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\processed\\demand_hourly.parquet": "da21702e6ba7a6d9eeff70e78b106347cd140a8734ae2aca831abc9431f21c66",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_features.parquet": "561034756b596e54c1455da7792708333cfeb1b0155c166bf6dc37699422f81c",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_train.parquet": "648b0ddcd475372b0091497085227e84d81e7d1baf31223c733e189f9c381bea",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_val.parquet": "7e2990472896d427ac3f7959e993273ed427ef3ea2b9df216a7d376942be59b1",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_test.parquet": "35ebacdbad1c88f26f7429029e2eef4bfacb71db178ad57e29b831d523faac7b",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\scripts\\audit_demand_time.py": "4f24875dc2669a636779373104d1eec971360f407148404b388a3c8c5c11835f",
+    "src\\data\\splits.py": "ad0b4f7f35ecb6321b35b7de16334244feba54f2cb50666c259d00368c720bd7",
+    "src\\features\\demand_features.py": "34c724e0d6d0b8c2021fd87018314b26ab1dfe607009f8a6a7ee2e568afcd26a",
+    "config\\config.yaml": "b2fed88a555f2560e5a83082ed5d807d18d19f3f90bced6f4f7fc5a0fee6a394"
+  },
+  "strict_output_sha256": {
+    "data\\features\\strict-hourly-v1\\demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78",
+    "data\\features\\strict-hourly-v1\\demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "data\\features\\strict-hourly-v1\\demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a"
+  },
+  "limitations": [
+    "Historical targets in later validation/test hours support rolling one-step evaluation, not fixed-origin multi-hour forecasting.",
+    "Publication/ingestion delay is not measured by timestamp ordering.",
+    "No training or accuracy evaluation performed. Legacy pipeline still uses row splits."
+  ]
+}
