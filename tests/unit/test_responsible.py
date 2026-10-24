@@ -124,3 +124,67 @@ def test_render_model_card_contains_sections():
     assert "Disparity ratio" in card
     assert "## Ethical considerations" in card
     assert "trip_distance" in card
+
+
+def test_single_group_is_not_reported_as_parity():
+    report = fairness.FairnessReport(
+        dimension="holiday",
+        subgroups=[fairness.SubgroupMetric("holiday", "non-holiday", 100, 2, 1, 10)],
+    )
+    payload = report.to_dict()
+    assert payload["status"] == "insufficient_comparison"
+    assert payload["disparity_ratio"] is None
+    assert not payload["flagged"]
+    card = render_model_card(
+        name="test", problem="demand", algorithm="tree", target="count",
+        metrics={}, fairness=[report],
+    )
+    assert "Insufficient comparison" in card
+    assert "— ok" not in card
+
+
+def test_card_preserves_model_identity_and_valid_shap_heading():
+    card = render_model_card(
+        name="test", problem="fare", algorithm="tree", target="fare",
+        metrics={}, version="7", run_id="run-7", model_reference="models:/test/7",
+        evaluation_notes=["Canonical test split; strict retraining not performed."],
+        top_features=[("distance", 1.2)],
+    )
+    assert "Registry version:** 7" in card
+    assert "`run-7`" in card
+    assert "`models:/test/7`" in card
+    assert "strict retraining not performed" in card
+    assert "| Feature | Mean absolute SHAP value |" in card
+
+
+def test_resolve_latest_loads_numeric_version(monkeypatch):
+    from types import SimpleNamespace
+
+    from scripts.responsible import run_analysis
+    from src.config import Config
+
+    versions = [SimpleNamespace(version="2", run_id="run2"),
+                SimpleNamespace(version="10", run_id="run10")]
+
+    class Client:
+        def search_model_versions(self, query):
+            return versions
+
+        def get_run(self, run_id):
+            assert run_id == "run10"
+            return SimpleNamespace(data=SimpleNamespace(params={"n_trials": "1"}))
+
+    config = Config({"serving": {"model_stage": "latest"}})
+    monkeypatch.setattr(run_analysis, "configure_mlflow", lambda config: None)
+    monkeypatch.setattr(run_analysis.mlflow, "MlflowClient", Client)
+
+    def load(problem, pinned):
+        assert pinned.serving["model_stage"] == "10"
+        return "loaded"
+
+    monkeypatch.setattr(run_analysis.registry, "load_model", load)
+    model, metadata = run_analysis.resolve_model("demand", config)
+    assert model == "loaded"
+    assert metadata["model_uri"] == "models:/taxi-demand-forecaster/10"
+    assert metadata["run_id"] == "run10"
+    assert config.serving["model_stage"] == "latest"

@@ -267,11 +267,15 @@ def responsible_ai() -> None:
     if report:
         st.subheader("Fairness across subgroups")
         for dim in report["dimensions"]:
-            flag = "🚩 flagged" if dim["flagged"] else "✓ within threshold"
-            st.markdown(
-                f"**{dim['dimension']}** — disparity ratio "
-                f"{dim['disparity_ratio']:.2f} (threshold {dim['threshold']}) · {flag}"
-            )
+            available = dim.get("comparison_available", len(dim["subgroups"]) >= 2)
+            if not available or dim.get("disparity_ratio") is None:
+                st.markdown(f"**{dim['dimension']}** — insufficient comparison; no parity conclusion.")
+            else:
+                flag = "🚩 flagged" if dim["flagged"] else "✓ within threshold"
+                st.markdown(
+                    f"**{dim['dimension']}** — disparity ratio "
+                    f"{dim['disparity_ratio']:.2f} (threshold {dim['threshold']}) · {flag}"
+                )
             sub = pd.DataFrame(dim["subgroups"]).sort_values("rmse", ascending=False)
             st.dataframe(
                 sub[["group", "n", "rmse", "mae", "mape"]],

@@ -25,11 +25,18 @@ def _fairness_section(reports: Sequence[FairnessReport]) -> str:
     parts: list[str] = []
     for rep in reports:
         flag = "⚠️ **flagged**" if rep.flagged else "ok"
-        parts.append(
-            f"### By {rep.dimension}\n\n"
+        summary = (
             f"Disparity ratio (worst/best RMSE): **{rep.disparity:.2f}** "
             f"(threshold {rep.threshold}) — {flag}. "
-            f"Worst: `{rep.worst_group}`, best: `{rep.best_group}`.\n\n"
+            f"Worst: `{rep.worst_group}`, best: `{rep.best_group}`."
+            if rep.comparison_available else
+            "**Insufficient comparison:** fewer than two groups have positive, finite "
+            "RMSE. No parity conclusion is available; a zero denominator also prevents "
+            "this ratio from being assessed."
+        )
+        parts.append(
+            f"### By {rep.dimension}\n\n"
+            f"{summary}\n\n"
             "| Group | n | RMSE | MAE | MAPE |\n|-------|---|------|-----|------|\n"
             + "\n".join(
                 f"| {s.group} | {s.n} | {s.rmse:.3f} | {s.mae:.3f} | {s.mape:.2f} |"
@@ -43,7 +50,7 @@ def _importance_section(top_features: Sequence[tuple[str, float]]) -> str:
     if not top_features:
         return "_No feature-importance data available._"
     rows = "\n".join(f"| {name} | {value:.4f} |" for name, value in top_features)
-    return "| Feature | Mean |SHAP| |\n|---------|-----------|\n" + rows
+    return "| Feature | Mean absolute SHAP value |\n|---------|-----------|\n" + rows
 
 
 def render_model_card(
@@ -59,6 +66,9 @@ def render_model_card(
     limitations: Sequence[str] = (),
     ethical_considerations: Sequence[str] = (),
     version: str = "",
+    run_id: str = "",
+    model_reference: str = "",
+    evaluation_notes: Sequence[str] = (),
     generated_at: str | None = None,
 ) -> str:
     """Return a Markdown model card as a string."""
@@ -86,6 +96,8 @@ def render_model_card(
         f"- **Algorithm:** {algorithm}",
         f"- **Target:** `{target}`",
         f"- **Registry version:** {version or 'n/a'}",
+        f"- **Training run ID:** `{run_id or 'not recorded'}`",
+        f"- **Evaluated model:** `{model_reference or 'not recorded'}`",
         "",
         "## Intended use",
         "",
@@ -99,6 +111,8 @@ def render_model_card(
         "## Evaluation — overall (test split)",
         "",
         _metrics_table(metrics),
+        "",
+        "\n".join(f"- {note}" for note in evaluation_notes),
         "",
         "## Evaluation — subgroup fairness",
         "",

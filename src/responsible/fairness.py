@@ -77,12 +77,19 @@ class FairnessReport:
     threshold: float = DEFAULT_DISPARITY_THRESHOLD
 
     @property
+    def comparison_available(self) -> bool:
+        """At least two groups must have usable RMSEs for this ratio."""
+        return len(self.subgroups) >= 2 and all(
+            np.isfinite(s.rmse) and s.rmse > 0 for s in self.subgroups
+        )
+
+    @property
     def disparity(self) -> float:
         return disparity_ratio([s.rmse for s in self.subgroups])
 
     @property
     def flagged(self) -> bool:
-        return self.disparity > self.threshold
+        return self.comparison_available and self.disparity > self.threshold
 
     @property
     def worst_group(self) -> str | None:
@@ -99,7 +106,10 @@ class FairnessReport:
     def to_dict(self) -> dict:
         return {
             "dimension": self.dimension,
-            "disparity_ratio": self.disparity,
+            "comparison_available": self.comparison_available,
+            "status": ("insufficient_comparison" if not self.comparison_available
+                       else "flagged" if self.flagged else "below_threshold"),
+            "disparity_ratio": self.disparity if self.comparison_available else None,
             "flagged": self.flagged,
             "worst_group": self.worst_group,
             "best_group": self.best_group,

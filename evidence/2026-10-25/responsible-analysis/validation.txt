@@ -1,0 +1,37 @@
+Validation performed 25 October 2026 (IST)
+
+Focused tests:
+  python -m pytest tests/unit/test_responsible.py -q
+  PASS: 11 tests, including single-group reporting, model identity and numeric latest resolution.
+
+Full offline tests:
+  python -m pytest --cov=src --cov-report=term-missing
+  PASS: 130 tests; coverage 95.01% (required 75%).
+  One existing python_multipart pending-deprecation warning.
+
+Regeneration:
+  python -m scripts.responsible.run_analysis
+  PASS: both model cards, fairness JSON files and SHAP images generated.
+  Numeric model URI /1 used for both models. No get_latest_versions deprecation warning.
+  Overall metrics agree with the original preserved JSON for both models.
+
+Repository-wide lint:
+  python -m ruff check .
+  FAIL: two existing issues in unchanged scripts/learner_demand_history.py:
+  I001 import ordering at line 1; B007 unused timestamp at line 250.
+  This file was left unchanged; repository-wide lint is not claimed to pass.
+
+Changed Python files lint:
+  python -m ruff check scripts/responsible/run_analysis.py src/responsible/fairness.py src/responsible/model_card.py tests/unit/test_responsible.py dashboard/sections.py
+  PASS: all checks passed.
+
+Evidence integrity:
+  PASS: original/reviewed overall and subgroup metrics match exactly.
+  PASS: reviewed card bytes match docs/model_cards/demand.md and fare.md.
+  SHA256 fingerprints recorded for preserved reports, relevant source files and
+  local MLflow model artifacts. Original analysis identity is not retroactively
+  asserted; numeric identity refers to the reviewed rerun.
+
+SHAP plots: visually inspected for readable feature labels and axes.
+Dashboard null-ratio handling: code reviewed; interactive dashboard not launched.
+Terraform: not run; unrelated to this change.

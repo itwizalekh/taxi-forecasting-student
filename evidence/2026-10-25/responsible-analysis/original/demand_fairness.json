@@ -1,0 +1,181 @@
+{
+  "problem": "demand",
+  "metrics": {
+    "rmse": 8.70222957112466,
+    "mae": 2.5349826042597443,
+    "mape": 40.19191196345925,
+    "r2": 0.9707433535520196
+  },
+  "dimensions": [
+    {
+      "dimension": "borough",
+      "disparity_ratio": 218.49533600276115,
+      "flagged": true,
+      "worst_group": "Manhattan",
+      "best_group": "Staten Island",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "borough",
+          "group": "Manhattan",
+          "n": 3862,
+          "rmse": 15.551222397844095,
+          "mae": 7.712857802196488,
+          "mape": 29.687615773819715
+        },
+        {
+          "dimension": "borough",
+          "group": "Queens",
+          "n": 3971,
+          "rmse": 6.466486151825169,
+          "mae": 1.1899310046431208,
+          "mape": 52.642945046872136
+        },
+        {
+          "dimension": "borough",
+          "group": "Unknown",
+          "n": 116,
+          "rmse": 3.1808720387017786,
+          "mae": 1.991070159177475,
+          "mape": 47.468261675465115
+        },
+        {
+          "dimension": "borough",
+          "group": "Brooklyn",
+          "n": 3457,
+          "rmse": 0.7405753094182307,
+          "mae": 0.44065163816787906,
+          "mape": 53.93362417967795
+        },
+        {
+          "dimension": "borough",
+          "group": "Bronx",
+          "n": 2476,
+          "rmse": 0.4410107122426525,
+          "mae": 0.2598135287293107,
+          "mape": 64.56779931824505
+        },
+        {
+          "dimension": "borough",
+          "group": "EWR",
+          "n": 58,
+          "rmse": 0.267332040046865,
+          "mae": 0.09345790854318418,
+          "mape": 97.01626310107866
+        },
+        {
+          "dimension": "borough",
+          "group": "Staten Island",
+          "n": 633,
+          "rmse": 0.07117416180292092,
+          "mae": 0.0426744595834992,
+          "mape": 91.09124761254887
+        }
+      ]
+    },
+    {
+      "dimension": "time_of_day",
+      "disparity_ratio": 2.6028635462803753,
+      "flagged": true,
+      "worst_group": "evening",
+      "best_group": "overnight",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "time_of_day",
+          "group": "evening",
+          "n": 4554,
+          "rmse": 11.823412827805436,
+          "mae": 3.364692874161796,
+          "mape": 37.296064510755066
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "afternoon",
+          "n": 3947,
+          "rmse": 8.526710352673549,
+          "mae": 2.9461533682270105,
+          "mape": 36.291561296151606
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "morning",
+          "n": 3036,
+          "rmse": 6.217603958308151,
+          "mae": 2.3609806212615263,
+          "mape": 39.04558718317842
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "overnight",
+          "n": 3036,
+          "rmse": 4.542463566598293,
+          "mae": 0.9298701028993508,
+          "mape": 57.54613317560874
+        }
+      ]
+    },
+    {
+      "dimension": "day_type",
+      "disparity_ratio": 1.0,
+      "flagged": false,
+      "worst_group": "weekday",
+      "best_group": "weekday",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "day_type",
+          "group": "weekday",
+          "n": 14573,
+          "rmse": 8.70222957112466,
+          "mae": 2.5349826042597443,
+          "mape": 40.19191196345925
+        }
+      ]
+    },
+    {
+      "dimension": "holiday",
+      "disparity_ratio": 1.0,
+      "flagged": false,
+      "worst_group": "non-holiday",
+      "best_group": "non-holiday",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "holiday",
+          "group": "non-holiday",
+          "n": 14573,
+          "rmse": 8.70222957112466,
+          "mae": 2.5349826042597443,
+          "mape": 40.19191196345925
+        }
+      ]
+    },
+    {
+      "dimension": "airport",
+      "disparity_ratio": 4.631464292385809,
+      "flagged": true,
+      "worst_group": "airport",
+      "best_group": "non-airport",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "airport",
+          "group": "airport",
+          "n": 116,
+          "rmse": 37.376557854526936,
+          "mae": 26.39218346967228,
+          "mape": 38.075636947475274
+        },
+        {
+          "dimension": "airport",
+          "group": "non-airport",
+          "n": 14457,
+          "rmse": 8.070138404386386,
+          "mae": 2.343557322362542,
+          "mape": 40.23586079915133
+        }
+      ]
+    }
+  ]
+}

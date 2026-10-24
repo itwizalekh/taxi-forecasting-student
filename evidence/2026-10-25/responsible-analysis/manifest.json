@@ -1,0 +1,79 @@
+{
+  "captured_at_utc": "2026-10-24T19:04:53.855562+00:00",
+  "starting_git_head": "9ae6b53cc7db9ea7c0c60fd0d36743e7f067352b",
+  "source_state": "Uncommitted responsible-analysis changes on the starting HEAD; hashes identify working-copy bytes.",
+  "python": "3.11.9",
+  "packages": {
+    "mlflow": "2.14.1",
+    "lightgbm": "4.3.0",
+    "xgboost": "2.0.3",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "shap": "0.45.1",
+    "scikit-learn": "1.5.0",
+    "matplotlib": "3.9.0"
+  },
+  "source_sha256": {
+    ".gitattributes": "4181fc2dd8ef4fb9cb08bde0ca4d727bd6fc05141a3476e63c64a4c7cb439d27",
+    "dashboard/sections.py": "3ece5d4a5d0e0cf4d16bc0682464a838de8fcfdb25ff715f7295f2725235f6f2",
+    "docs/model_cards/README.md": "fe211f78ee4bda08f427320e96dc02404326d3cbbf1ac107185c57ec62096c89",
+    "scripts/responsible/run_analysis.py": "ec6537c03c629c76f8534a013c591d5da64038c21ae4b4a09d1410adfa10697f",
+    "src/responsible/model_card.py": "eb9d6e9a6d11f13f85dbfbb6d9b226b4aba084b0acd87fa51fb960266f7b085e",
+    "src/responsible/fairness.py": "a9c1b952a9857f414b2ab4c9a48fe6c3861630ac9b06a9f2149bb3cf56f4ead5",
+    "src/responsible/explain.py": "c297d7a2d0e24a9b4898b3e39ff78b33c450469ba23082c88a9180599f780c73",
+    "src/serving/registry.py": "00984c31691ca03bf8487e6c4ce23ab70a29204bff40cd5fd0f1dc29e6e5f97f",
+    "src/models/common.py": "b4cfc3ef3a2a543a67f595e7b60ccb1b8041a398a46602a30e0bedc4257c5fa4",
+    "config/config.yaml": "b2fed88a555f2560e5a83082ed5d807d18d19f3f90bced6f4f7fc5a0fee6a394",
+    "tests/unit/test_responsible.py": "f8e7ad952dea916e1621341fcfbbd4cadc235ee5fb3908689aee7d55319af46f"
+  },
+  "preserved_sha256": {
+    "original/demand.md": "df483b8cc7369a91c2896cb43e54ddebb28480b60ad6c66c81263937c7ff52f2",
+    "original/demand_fairness.json": "6dbda158e4e63bfb97e452f0885f2a418656da6644fd318c4b13171c6592afbe",
+    "original/demand_shap_summary.png": "230c93a9eec953bc6852438c69060dc89f752ae8fc0e9bfb43120c42bdccfb47",
+    "original/fare.md": "25c0c23d3573e95985c9f284ad097737a1485b3817ba0a340226d9dba337187d",
+    "original/fare_fairness.json": "aa9eec813058af2cdd127ac9c175031c0877d144636b5b934428662bc4a2c4df",
+    "original/fare_shap_summary.png": "35a937af90fa09ddb57e3db78ca9d1e56c431d3833a21fd0d7076442ce48b0e3",
+    "README.md": "3b272c34886426cefec9cc4163f0c5a372ca9fcd445f68e45ceea4828c8438f9",
+    "reviewed/demand.md": "a4aa9667cc3342ae4345da13d6e1bdba619080fd183cde7ed5b2d88e5fd94b5b",
+    "reviewed/demand_fairness.json": "605cc954f5a9b5cf24507702b28cfaeb74a97d4a91043f8431ac4a9c5ec42d57",
+    "reviewed/demand_shap_summary.png": "82deed77d1cec037feeb25554f3ae5a4f44e2795a0a1623b913fa53f59b372ae",
+    "reviewed/fare.md": "f4c206a79cd29efe874ddb94eeeda88f07c5b253f7e7e4b374f0c1ae69571bd6",
+    "reviewed/fare_fairness.json": "8ed60142b4f710e52a22b2de65900d0014b4d4317eb82fec5b92bb9028e1ae7a",
+    "reviewed/fare_shap_summary.png": "a1444f270a1ca7249eb60e2d683c928eaf5c75e6067df8b230c71deb21cbf1c2",
+    "validation.txt": "04499cd9b814ecc9b5327ac14b83a114fca8ca896f876cff540c48532cab6ec3"
+  },
+  "models": {
+    "demand": {
+      "model_uri": "models:/taxi-demand-forecaster/1",
+      "run_id": "771eb4d4470f4da9ab8467568f9a8f34",
+      "artifact_sha256": {
+        "conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+        "metadata/conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+        "metadata/MLmodel": "ebc3123ee5fac8d39117dd040a8621583f735da3d99f8f976ffb3ed083518d67",
+        "metadata/python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+        "metadata/requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa",
+        "MLmodel": "ebc3123ee5fac8d39117dd040a8621583f735da3d99f8f976ffb3ed083518d67",
+        "model.pkl": "797bdbd741a58e817534e7ff58c48ac61249c9d5e1dc12cd37c3e19b01715966",
+        "python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+        "registered_model_meta": "6984704959822002a0886a93afee81ea633b86b22d0bdb74e1a6315f858f26f0",
+        "requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa"
+      }
+    },
+    "fare": {
+      "model_uri": "models:/taxi-fare-predictor/1",
+      "run_id": "431fcbd5c9784409994a95ea11453a87",
+      "artifact_sha256": {
+        "conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+        "metadata/conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+        "metadata/MLmodel": "024e3d5f509e7012e9d6840e2404e36cd8a524f1d39aa5f7071afaab17d8956a",
+        "metadata/python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+        "metadata/requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa",
+        "MLmodel": "024e3d5f509e7012e9d6840e2404e36cd8a524f1d39aa5f7071afaab17d8956a",
+        "model.pkl": "51320016a1e8061dae94e97df0818b66790dc608baad9fb3f7c239e34fc43de4",
+        "python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+        "registered_model_meta": "a9797ec0b2ef4d766264a9f46d14fbef531f50ba401ec26feafd131b80b33956",
+        "requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa"
+      }
+    }
+  }
+}

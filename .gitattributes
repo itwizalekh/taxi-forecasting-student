@@ -6,3 +6,5 @@
 /scripts/learner_demand_time_stage_03.py -text whitespace=cr-at-eol
 /scripts/capture_learner_stages.py -text whitespace=cr-at-eol
 /evidence/2026-10-24/learner-demand-time/** -text whitespace=cr-at-eol
+# Preserve captured responsible-analysis inputs, outputs and hash manifests byte-for-byte.
+/evidence/2026-10-25/responsible-analysis/** -text whitespace=cr-at-eol
