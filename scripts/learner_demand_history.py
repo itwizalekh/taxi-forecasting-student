@@ -179,3 +179,38 @@ print(
     ].to_string(index=False)
 )
 
+required_lags = ["lag_1", "lag_2"]
+
+# Inspect missing historical inputs separately.
+print("\nMissing required lags:")
+print(history[required_lags].isna().to_string(index=False))
+
+# True when at least one required lag is missing in that row.
+warmup_mask = history[required_lags].isna().any(axis=1)
+
+excluded = history.loc[warmup_mask].copy()
+eligible = history.loc[~warmup_mask].copy()
+
+print(f"\nTotal rows before warm-up exclusion: {len(history)}")
+
+display_columns = [ZONE, TIME, TARGET, *required_lags]
+
+print("\nExcluded rows:")
+print(excluded[display_columns].to_string(index=False))
+
+print("\nEligible rows:")
+print(eligible[display_columns].to_string(index=False))
+
+excluded_counts = excluded.groupby(ZONE).size().reindex(zones, fill_value=0)
+print("\nExcluded-row counts by zone:")
+print(excluded_counts.rename("excluded_rows").to_string())
+
+first_eligible_hours = eligible.groupby(ZONE)[TIME].min().reindex(zones)
+print("\nFirst eligible hour by zone:")
+print(first_eligible_hours.rename("first_eligible_hour").to_string())
+
+assert len(excluded) + len(eligible) == len(history)
+assert not eligible[required_lags].isna().any().any()
+
+
+
