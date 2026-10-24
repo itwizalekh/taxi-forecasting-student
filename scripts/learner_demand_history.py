@@ -63,11 +63,11 @@ print("\nDense grid after filling:")
 print(dense.to_string(index=False))
 
 # Print summary statistics
-print("Number of sparse rows: {len(sparse)}")
-print("Number of dense rows: {len(dense)}")
-print("Number of zero-count dense rows: {dense[TARGET].eq(0).sum()}")
-print("Total pickups before expansion: {sparse[TARGET].sum()}")
-print("Total pickups after expansion: {dense[TARGET].sum()}")
+print(f"Number of sparse rows: {len(sparse)}")
+print(f"Number of dense rows: {len(dense)}")
+print(f"Number of zero-count dense rows: {dense[TARGET].eq(0).sum()}")
+print(f"Total pickups before expansion: {sparse[TARGET].sum()}")
+print(f"Total pickups after expansion: {dense[TARGET].sum()}")
 
 assert dense[TARGET].sum() == sparse[TARGET].sum()
 
@@ -106,13 +106,76 @@ dense_result = dense_demo.loc[
 ].iloc[0]
 
 print("\nPrevious-count comparison for zone 101 at 02:00:")
+sparse_source_hour = sparse_demo.loc[
+    (sparse_demo[ZONE] == 101) & (sparse_demo[TIME] < target_time), TIME
+].max()
 print(
     f"Sparse: count={sparse_result['previous_row_count']}, "
-    f"source hour={sparse_demo.loc[(sparse_demo[ZONE] == 101) & "
-    f"(sparse_demo[TIME] < target_time), TIME].max()}"
+    f"source hour={sparse_source_hour}"
 )
 print(
     f"Dense: count={dense_result['previous_hour_count']}, "
     f"source hour={target_time - pd.Timedelta(hours=1)}"
+)
+
+history = (
+    dense.sort_values([ZONE, TIME])
+    .reset_index(drop=True)
+    .copy()
+)
+
+history["lag_1"] = history.groupby(ZONE)[TARGET].shift(1)
+history["lag_2"] = history.groupby(ZONE)[TARGET].shift(2)
+
+"""
+Do not fill missing lag values with zero.
+These represent different situations:
+Value	Meaning
+0	An available hourly count containing no accepted pickups
+NaN in a lag	The required earlier observation is unavailable
+
+
+For the first hour in this example, there is no earlier history. Inventing a zero would conceal that limitation.
+"""
+
+history["past_mean_3"] = (
+    history.groupby(ZONE)["lag_1"]
+    .transform(
+        lambda series: series.rolling(
+            window=3,
+            min_periods=1,
+        ).mean()
+    )
+)
+
+history["past_std_3"] = (
+    history.groupby(ZONE)["lag_1"]
+    .transform(
+        lambda series: series.rolling(
+            window=3,
+            min_periods=1,
+        ).std(ddof=1)
+    )
+)
+
+# Sample standard deviation (for n > 1): s = sqrt(sum((x_i - x̄) ** 2) / (n - 1))
+
+"""
+With only one available observation, sample standard deviation is undefined, so pandas returns NaN. Leave it visible for now. The repository later fills rolling-standard-deviation NaN values with zero as an explicit implementation convention.
+"""
+
+print("\nShort history features:")
+print(
+    history[
+        [
+            ZONE,
+            TIME,
+            TARGET,
+            "lag_1",
+            "lag_2",
+            "past_mean_3",
+            "past_std_3",
+        ]
+    ].to_string(index=False)
 )
 
