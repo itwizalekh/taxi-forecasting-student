@@ -1,0 +1,8 @@
+# Preserve exact captured bytes for the learner audit's SHA256 provenance.
+# -text disables newline conversion without forcing binary diff treatment.
+/scripts/learner_demand_time_audit.py -text whitespace=cr-at-eol
+/scripts/learner_demand_time_stage_01.py -text whitespace=cr-at-eol
+/scripts/learner_demand_time_stage_02.py -text whitespace=cr-at-eol
+/scripts/learner_demand_time_stage_03.py -text whitespace=cr-at-eol
+/scripts/capture_learner_stages.py -text whitespace=cr-at-eol
+/evidence/2026-10-24/learner-demand-time/** -text whitespace=cr-at-eol

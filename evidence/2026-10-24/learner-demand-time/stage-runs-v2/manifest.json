@@ -1,0 +1,91 @@
+{
+  "provenance": "Fresh assistant-captured reruns of learner code carved into cumulative stages; not the original historical execution records.",
+  "git_head_before_capture": "62f5836bda6bc730405025462ab07c12c35d7947",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "pandas": "2.2.2",
+    "numpy": "1.26.4",
+    "pyarrow": "15.0.2"
+  },
+  "inputs_sha256_before": {
+    "data\\features\\demand_train.parquet": "648b0ddcd475372b0091497085227e84d81e7d1baf31223c733e189f9c381bea",
+    "data\\features\\demand_val.parquet": "7e2990472896d427ac3f7959e993273ed427ef3ea2b9df216a7d376942be59b1",
+    "data\\features\\demand_test.parquet": "35ebacdbad1c88f26f7429029e2eef4bfacb71db178ad57e29b831d523faac7b"
+  },
+  "inputs_sha256_after": {
+    "data\\features\\demand_train.parquet": "648b0ddcd475372b0091497085227e84d81e7d1baf31223c733e189f9c381bea",
+    "data\\features\\demand_val.parquet": "7e2990472896d427ac3f7959e993273ed427ef3ea2b9df216a7d376942be59b1",
+    "data\\features\\demand_test.parquet": "35ebacdbad1c88f26f7429029e2eef4bfacb71db178ad57e29b831d523faac7b"
+  },
+  "inputs_unchanged": true,
+  "sources_sha256": {
+    "scripts\\learner_demand_time_stage_01.py": "79085cd1e14526fd94f4132346b07f0d53350bb48caad9edd3511f78021d695f",
+    "scripts\\learner_demand_time_stage_02.py": "1e838a9443386bd42ca7f5abe8ed15eb04c79db33187478adf25941efedbaca1",
+    "scripts\\learner_demand_time_stage_03.py": "9d8c84842f1fdf8024f2b08e2fec84c41daf223a9e70abcdf6756e145ee31593",
+    "scripts\\capture_learner_stages.py": "f1f7d7f139297ed4cb003f257416b3329028d7f13db5a18edb2e4b408db37613",
+    "scripts\\learner_demand_time_audit.py": "b4f66268b1e52a9d34497b43754095b81485f59ca9445592e4fe2da05f6b8a97"
+  },
+  "sources_unchanged": true,
+  "original_logs_preserved_sha256": {
+    "evidence\\2026-10-24\\learner-demand-time\\01-boundaries.txt": "3e595a015c1bc5f36fcd9ef3f3f745200d0e8f6f5fb18349e0ad513c8c66db7c",
+    "evidence\\2026-10-24\\learner-demand-time\\02-boundary-rows.txt": "59c61b5dca99d57b7900417de90a8c2605c33f7a251a7aa1ac39bfb3adb752ca",
+    "evidence\\2026-10-24\\learner-demand-time\\03-whole-hour-splits.txt": "99e93360e9a0caeb7135d1782c211ea2d95fa911df077318c2505c3e216a2658"
+  },
+  "runs": [
+    {
+      "stage": 1,
+      "source": "scripts\\learner_demand_time_stage_01.py",
+      "command": [
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\.venv\\Scripts\\python.exe",
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\scripts\\learner_demand_time_stage_01.py"
+      ],
+      "cwd": "C:\\Data\\BITS\\labs\\taxi-forecasting-student",
+      "started_utc": "2026-10-24T10:40:27.414822+00:00",
+      "ended_utc": "2026-10-24T10:40:28.445819+00:00",
+      "exit_code": 0,
+      "stdout": "stage-01-console.txt",
+      "stdout_sha256": "df2205064119ae78dca0e8b36a528a9d9cee79f4202cea73c08fefbbf4b8112d",
+      "stderr": "stage-01-stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": 2,
+      "source": "scripts\\learner_demand_time_stage_02.py",
+      "command": [
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\.venv\\Scripts\\python.exe",
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\scripts\\learner_demand_time_stage_02.py"
+      ],
+      "cwd": "C:\\Data\\BITS\\labs\\taxi-forecasting-student",
+      "started_utc": "2026-10-24T10:40:28.448164+00:00",
+      "ended_utc": "2026-10-24T10:40:29.539057+00:00",
+      "exit_code": 0,
+      "stdout": "stage-02-console.txt",
+      "stdout_sha256": "5df7eade1acba631d08f217b5ad4de5daa14eb21120a26c9b59947ee92c1f6a3",
+      "stderr": "stage-02-stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": 3,
+      "source": "scripts\\learner_demand_time_stage_03.py",
+      "command": [
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\.venv\\Scripts\\python.exe",
+        "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\scripts\\learner_demand_time_stage_03.py"
+      ],
+      "cwd": "C:\\Data\\BITS\\labs\\taxi-forecasting-student",
+      "started_utc": "2026-10-24T10:40:29.556764+00:00",
+      "ended_utc": "2026-10-24T10:40:31.203546+00:00",
+      "exit_code": 0,
+      "stdout": "stage-03-console.txt",
+      "stdout_sha256": "3a6957f6b3fb9a07d1f52c05fe8188585db002a7eaf343a5251c5cb3c15c8486",
+      "stderr": "stage-03-stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "all_stages_passed": true,
+  "limitations": [
+    "Input byte hashes require retaining/reacquiring the matching Parquet files for exact reproduction; data files are not committed.",
+    "Carved stage sources were prepared now; exact source versions at the original three executions were not previously archived.",
+    "Stage 3 additionally enforces reviewed assertions and full-value conservation; no feature or model training is performed."
+  ]
+}

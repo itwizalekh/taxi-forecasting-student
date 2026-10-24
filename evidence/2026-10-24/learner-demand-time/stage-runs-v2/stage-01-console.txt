@@ -1,0 +1,14 @@
+Training columns:
+['PULocationID', 'pickup_hour', 'pickup_count', 'hour', 'day_of_week', 'month', 'is_weekend', 'is_holiday', 'hour_sin', 'hour_cos', 'dow_sin', 'dow_cos', 'lag_1', 'lag_2', 'lag_3', 'lag_24', 'lag_168', 'rolling_mean_3', 'rolling_std_3', 'rolling_mean_24', 'rolling_std_24', 'rolling_mean_168', 'rolling_std_168']
+
+train: rows=116582, hours=461, zones=253, first=2024-01-08 00:00:00, last=2024-01-27 04:00:00
+val: rows=14573, hours=59, zones=253, first=2024-01-27 04:00:00, last=2024-01-29 14:00:00
+test: rows=14573, hours=58, zones=253, first=2024-01-29 14:00:00, last=2024-01-31 23:00:00
+
+Split boundaries:
+Last training hour: 2024-01-27 04:00:00
+First validation hour: 2024-01-27 04:00:00
+Last validation hour: 2024-01-29 14:00:00
+First test hour: 2024-01-29 14:00:00
+Last training hour < First validation hour: False
+Last validation hour < First test hour: False
