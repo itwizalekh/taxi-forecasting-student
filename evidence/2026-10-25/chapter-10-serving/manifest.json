@@ -1,0 +1,37 @@
+{
+  "chapter": 10,
+  "evidence_date_ist": "2026-10-25",
+  "source": "learner-provided screenshots and console; local read-only SQLite export",
+  "generation_utc": "2026-10-25T03:54:33.544219+00:00",
+  "rows": 759,
+  "zones": 253,
+  "hours": 3,
+  "model_reference": "latest",
+  "exact_loaded_model_versions": null,
+  "files": {
+    "batch-forecast.csv": {
+      "sha256": "12c65acc0708d12dcaba67de5a9c0bd4185e918884d235a2c25ffb3978b8ba93",
+      "bytes": 54362
+    },
+    "fare-estimated-duration.png": {
+      "sha256": "55fcab8e79d568531243e5ee7a413cc92fb08284f9f37297bcc99b2dbc93fc81",
+      "bytes": 30036
+    },
+    "health.png": {
+      "sha256": "0169fa272535de3cd3dfccc15a791747f76a5684ecaf236ee1711d2c49be85cb",
+      "bytes": 22238
+    },
+    "learner-console.txt": {
+      "sha256": "85ec86f2d9c1ae3cc90803e4c32f8d3479605e62309c1be65e8bcf78ff5d60d7",
+      "bytes": 81108
+    },
+    "README.md": {
+      "sha256": "32fea4d00f3637025afc5315a524929a2d47178a228bd15a2031f26bdb226c8a",
+      "bytes": 3880
+    },
+    "single-demand.png": {
+      "sha256": "5bdad1cfd4c7077e15d086a16a6c6414a8276044ae199b3fa1b513c6e7bbfc0d",
+      "bytes": 21435
+    }
+  }
+}
