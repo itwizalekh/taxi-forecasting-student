@@ -1,0 +1,14 @@
+diff --git a/config/config.yaml b/config/config.yaml
+index 6428cc4..bfa9381 100644
+--- a/config/config.yaml
++++ b/config/config.yaml
+@@ -52,7 +52,8 @@ serving:
+   # SQLite database for batch demand forecasts.
+   batch_db_path: "predictions.db"
+   # Registry stage/version reference to load (e.g. a version number or "latest").
+-  model_stage: "latest"
++#  model_stage: "latest"
++  model_stage: 1
+   # Hours ahead for the batch demand forecast.
+   batch_horizon_hours: 24
+ 

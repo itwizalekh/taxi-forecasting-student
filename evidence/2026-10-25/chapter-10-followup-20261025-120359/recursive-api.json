@@ -1,0 +1,23 @@
+{
+  "captured_at_utc": "2026-10-25T07:00:28.443399+00:00",
+  "method": "POST",
+  "url": "http://127.0.0.1:8000/forecast/demand",
+  "request_json": {
+    "horizon_hours": 3,
+    "zones": [
+      132
+    ]
+  },
+  "sent_request_id": "5f2c2786-3bdd-42bb-b22e-6a3760214847",
+  "http_status": 200,
+  "response_headers": {
+    "date": "Sun, 25 Oct 2026 07:00:27 GMT",
+    "server": "uvicorn",
+    "content-length": "339",
+    "content-type": "application/json",
+    "x-request-id": "5f2c2786-3bdd-42bb-b22e-6a3760214847",
+    "connection": "close"
+  },
+  "response_request_id": "5f2c2786-3bdd-42bb-b22e-6a3760214847",
+  "response_body_raw": "{\"horizon_hours\":3,\"zones\":1,\"points\":[{\"zone\":132,\"pickup_hour\":\"2024-02-01T00:00:00\",\"predicted_pickups\":133.52},{\"zone\":132,\"pickup_hour\":\"2024-02-01T01:00:00\",\"predicted_pickups\":14.39},{\"zone\":132,\"pickup_hour\":\"2024-02-01T02:00:00\",\"predicted_pickups\":7.54}],\"model_reference\":\"1\",\"request_id\":\"5f2c2786-3bdd-42bb-b22e-6a3760214847\"}"
+}

@@ -1,0 +1,128 @@
+{
+  "inventory_updated_at_utc": "2026-10-25T07:36:26.482757+00:00",
+  "scope": "Artifact inventory and verified Day 3 policy checks; no new API/batch/deployment run",
+  "phase_table": "PHASE_EVIDENCE_STATUS.md",
+  "served_revision": "61ea01cb4bc5961c2f5ecd66ae87377c3217d327",
+  "batch_generation": "2026-10-25T07:01:12.370071+00:00",
+  "checker": {
+    "all_passed": true,
+    "cases": 7,
+    "exit_code": 0,
+    "source_snapshot": "day-3-submission-snapshot.py",
+    "checker_snapshot": "day-3-checker-snapshot.py"
+  },
+  "hash_scope": "Finalized files after API logging and transcription stopped.",
+  "files": {
+    "api-startup-and-requests.log": {
+      "sha256": "a64c97476789bbf1c405a52f342f6f2eedf685ae0a080604a90fa8bba89a107d",
+      "bytes": 7620,
+      "may_be_active_log": false
+    },
+    "batch-console.txt": {
+      "sha256": "0773c6dea34b1595755663489e5e2aa573f38b91cb5ab5394314e3d5fe91460a",
+      "bytes": 157578,
+      "may_be_active_log": false
+    },
+    "batch-forecast.csv": {
+      "sha256": "1f1cc5bfce53a5ad11f8f5b95bb9e303d6e9d5eb70cf5cb5805c858b3693e646",
+      "bytes": 54362,
+      "may_be_active_log": false
+    },
+    "batch-generations.csv": {
+      "sha256": "493cbc0198350e2b46b15a275eb85b1d730e16adb9c7e6b393a038c90f2cfa49",
+      "bytes": 327,
+      "may_be_active_log": false
+    },
+    "config-diff.patch": {
+      "sha256": "d52721aa36ea9d4b953a999bdd42f002b295665867397eda7177108a014b5a27",
+      "bytes": 487,
+      "may_be_active_log": false
+    },
+    "day-3-checker-snapshot.py": {
+      "sha256": "5feaa88c7f1525e74ae11449b3688f3e33adea2b423a7c0a2fe8ae0e4f069f68",
+      "bytes": 5606,
+      "may_be_active_log": false
+    },
+    "day-3-checker-verification.log": {
+      "sha256": "32ade36ec881f6aa38ede9c844425befecda23a3a3af88681501c9e6de4960d0",
+      "bytes": 1533,
+      "may_be_active_log": false
+    },
+    "day-3-checker-verified.json": {
+      "sha256": "4f1d9239d864c1cdf7661a1bd05d7d6b748eb2bfab28060853e092d0d78c3d63",
+      "bytes": 980,
+      "may_be_active_log": false
+    },
+    "day-3-code-checks.json": {
+      "sha256": "18f48a8bfd72d41afc92d62da3336efb942bdfd51ac87b7a4fd343f993b64564",
+      "bytes": 920,
+      "may_be_active_log": false
+    },
+    "day-3-submission-snapshot.py": {
+      "sha256": "65247d18b2335a289c323cc7a007da1aa2af090c5c4db02b39f418dc49d03c53",
+      "bytes": 2377,
+      "may_be_active_log": false
+    },
+    "demand-valid.json": {
+      "sha256": "3de9218066dc97835619c0e471382863471b2cf0f0d2f058fa773aace33b78e4",
+      "bytes": 799,
+      "may_be_active_log": false
+    },
+    "fare-invalid.json": {
+      "sha256": "4e529fd91fc3be447a07f38d30cc26ae217ff5d7820cbb59deadb4289082f6ea",
+      "bytes": 941,
+      "may_be_active_log": false
+    },
+    "fare-valid.json": {
+      "sha256": "fdafc772cc311c074393802524078063f8061aba8e2793fcdb9be123d0678cbe",
+      "bytes": 897,
+      "may_be_active_log": false
+    },
+    "health.json": {
+      "sha256": "b76be9bfa7a739e9111851167f14e792d7a7952748f060d99fb3fd7e040d105a",
+      "bytes": 699,
+      "may_be_active_log": false
+    },
+    "lineage.json": {
+      "sha256": "2c3cf958564dcf40f1cfecdb5949424d144cb822efc201207f36bcb1a24d5df3",
+      "bytes": 2277,
+      "may_be_active_log": false
+    },
+    "PHASE_EVIDENCE_STATUS.md": {
+      "sha256": "a0dc3b3291a02984c7f177a12629f973b971232afbd2e2bcf683977339ceb5aa",
+      "bytes": 5188,
+      "may_be_active_log": false
+    },
+    "README.md": {
+      "sha256": "1fef29c3dc39c6fc3a19b00ea114b7944ad7f7e97674c2248ceb5f3cafc76436",
+      "bytes": 745,
+      "may_be_active_log": false
+    },
+    "recursive-api.json": {
+      "sha256": "8964b2ee7f69bf3690f31ab9ff36e28cf549ee0fff39fd43592e9fc0ac64cae8",
+      "bytes": 1037,
+      "may_be_active_log": false
+    },
+    "reflection.md": {
+      "sha256": "77b5f30908676a881e54926b3a77e8af04c306872aae222bc1ad0728b0a5573f",
+      "bytes": 7484,
+      "may_be_active_log": false
+    },
+    "session.txt": {
+      "sha256": "a53a4083cf2357f2906911959f68a931e0129676c1f8fd4f791641b030de2906",
+      "bytes": 95459,
+      "may_be_active_log": false
+    },
+    "toy-matched-origin-metrics.csv": {
+      "sha256": "d2bbd7ce7c7fad8fad592c39634a4cafe3dbec9d91d12e183b577e547f4f7d47",
+      "bytes": 159,
+      "may_be_active_log": false
+    },
+    "toy-source.json": {
+      "sha256": "1c0f09f740d0510ce232e1435af441b484e2b0b1ed4dc785c2d40b0fe6908c98",
+      "bytes": 298,
+      "may_be_active_log": false
+    }
+  },
+  "hashes_refreshed_at_utc": "2026-10-25T08:07:49.830392+00:00"
+}

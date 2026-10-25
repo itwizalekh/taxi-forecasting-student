@@ -1,0 +1,41 @@
+cwd: C:\Data\BITS\labs\taxi-forecasting-student
+command: C:\Data\BITS\labs\taxi-forecasting-student\.venv\Scripts\python.exe C:\Data\BITS\labs\taxi-forecasting-student\evidence\2026-10-25\chapter-10-followup-20261025-120359\day-3-checker-snapshot.py --day 3 --submission C:\Data\BITS\labs\taxi-forecasting-student\evidence\2026-10-25\chapter-10-followup-20261025-120359\day-3-submission-snapshot.py --output C:\Data\BITS\labs\taxi-forecasting-student\evidence\2026-10-25\chapter-10-followup-20261025-120359\day-3-checker-verified.json
+exit_code: 0
+{
+  "day": 3,
+  "scope": "Objective function checks only; written reasoning and actual capstone evidence require review",
+  "submission": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\evidence\\2026-10-25\\chapter-10-followup-20261025-120359\\day-3-submission-snapshot.py",
+  "cases": [
+    {
+      "case": "All conditions and boundaries pass",
+      "status": "passed"
+    },
+    {
+      "case": "Demand quality fails",
+      "status": "passed"
+    },
+    {
+      "case": "Fare quality fails",
+      "status": "passed"
+    },
+    {
+      "case": "Demand baseline fails",
+      "status": "passed"
+    },
+    {
+      "case": "Fare baseline fails",
+      "status": "passed"
+    },
+    {
+      "case": "False authorization",
+      "status": "passed"
+    },
+    {
+      "case": "Portal typo is not authorization",
+      "status": "passed"
+    }
+  ],
+  "all_passed": true,
+  "mastery_status": "unreviewed",
+  "capstone_readiness": "unverified"
+}

@@ -1,0 +1,21 @@
+{
+  "captured_at_utc": "2026-10-25T07:00:28.364551+00:00",
+  "method": "POST",
+  "url": "http://127.0.0.1:8000/predict/demand",
+  "request_json": {
+    "zone": 132,
+    "target_hour": "2024-02-01T00:00:00"
+  },
+  "sent_request_id": "9dd76e89-1ffc-457c-9678-739ce5c36595",
+  "http_status": 200,
+  "response_headers": {
+    "date": "Sun, 25 Oct 2026 07:00:27 GMT",
+    "server": "uvicorn",
+    "content-length": "127",
+    "content-type": "application/json",
+    "x-request-id": "9dd76e89-1ffc-457c-9678-739ce5c36595",
+    "connection": "close"
+  },
+  "response_request_id": "9dd76e89-1ffc-457c-9678-739ce5c36595",
+  "response_body_raw": "{\"zone\":132,\"target_hour\":\"2024-02-01T00:00:00\",\"predicted_pickups\":133.52,\"request_id\":\"9dd76e89-1ffc-457c-9678-739ce5c36595\"}"
+}

@@ -1,0 +1,25 @@
+{
+  "captured_at_utc": "2026-10-25T07:00:28.253472+00:00",
+  "method": "POST",
+  "url": "http://127.0.0.1:8000/predict/fare",
+  "request_json": {
+    "trip_distance": 3.2,
+    "passenger_count": 1,
+    "pu_location_id": 161,
+    "do_location_id": 236,
+    "pickup_datetime": "2024-01-20T10:00:00",
+    "trip_duration_min": 18.0
+  },
+  "sent_request_id": "912bc8f0-3b1b-4548-ad52-33ee054fcce4",
+  "http_status": 200,
+  "response_headers": {
+    "date": "Sun, 25 Oct 2026 07:00:26 GMT",
+    "server": "uvicorn",
+    "content-length": "103",
+    "content-type": "application/json",
+    "x-request-id": "912bc8f0-3b1b-4548-ad52-33ee054fcce4",
+    "connection": "close"
+  },
+  "response_request_id": "912bc8f0-3b1b-4548-ad52-33ee054fcce4",
+  "response_body_raw": "{\"predicted_fare\":18.63,\"duration_estimated\":false,\"request_id\":\"912bc8f0-3b1b-4548-ad52-33ee054fcce4\"}"
+}

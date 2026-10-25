@@ -1,0 +1,44 @@
+{
+  "captured_at_utc": "2026-10-25T06:59:24.580917+00:00",
+  "cwd": "C:\\Data\\BITS\\labs\\taxi-forecasting-student",
+  "git_revision": "61ea01cb4bc5961c2f5ecd66ae87377c3217d327",
+  "git_status": " M config/config.yaml\n M docs/L2_FARE_METRICS_LAB.md\n M docs/STRICT_DEMAND_NEXT_STEPS.md\n?? docs/CHAPTER_10_EVIDENCE_NEXT_STEPS.md\n?? evidence/2026-10-24/learner-demand-time/stage-runs-v1/\n?? evidence/2026-10-25/chapter-10-a05/\n?? evidence/2026-10-25/chapter-10-followup-20261025-120359/\n",
+  "config_sha256": "19f22fcb1863997d85c353118bc43babddacd1753064d59850b62dcdef88df2f",
+  "history_path": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\processed\\demand_hourly.parquet",
+  "history_sha256": "da21702e6ba7a6d9eeff70e78b106347cd140a8734ae2aca831abc9431f21c66",
+  "models": {
+    "demand": {
+      "name": "taxi-demand-forecaster",
+      "numeric_version": "1",
+      "uri": "models:/taxi-demand-forecaster/1",
+      "run_id": "771eb4d4470f4da9ab8467568f9a8f34",
+      "source": "file:///C:/Data/BITS/labs/taxi-forecasting-student/mlruns/2/771eb4d4470f4da9ab8467568f9a8f34/artifacts/model"
+    },
+    "fare": {
+      "name": "taxi-fare-predictor",
+      "numeric_version": "1",
+      "uri": "models:/taxi-fare-predictor/1",
+      "run_id": "431fcbd5c9784409994a95ea11453a87",
+      "source": "file:///C:/Data/BITS/labs/taxi-forecasting-student/mlruns/1/431fcbd5c9784409994a95ea11453a87/artifacts/model"
+    }
+  },
+  "scope": "new pinned local run; does not identify historical latest executions",
+  "batch": {
+    "db_path": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\predictions.db",
+    "generated_at": "2026-10-25T07:01:12.370071+00:00",
+    "rows": 759,
+    "zones": 253,
+    "hours": 3,
+    "stored_model_references": [
+      "latest"
+    ],
+    "resolved_demand_model": {
+      "name": "taxi-demand-forecaster",
+      "numeric_version": "1",
+      "uri": "models:/taxi-demand-forecaster/1",
+      "run_id": "771eb4d4470f4da9ab8467568f9a8f34",
+      "source": "file:///C:/Data/BITS/labs/taxi-forecasting-student/mlruns/2/771eb4d4470f4da9ab8467568f9a8f34/artifacts/model"
+    },
+    "note": "batch writer defaults model_version to latest even with pinned loader; numeric lineage is recorded separately"
+  }
+}

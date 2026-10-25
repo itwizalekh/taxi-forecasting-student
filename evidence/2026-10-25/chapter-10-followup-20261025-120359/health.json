@@ -1,0 +1,18 @@
+{
+  "captured_at_utc": "2026-10-25T07:00:27.797161+00:00",
+  "method": "GET",
+  "url": "http://127.0.0.1:8000/health",
+  "request_json": null,
+  "sent_request_id": "119639dc-1c2b-4521-821d-8197d2b0403d",
+  "http_status": 200,
+  "response_headers": {
+    "date": "Sun, 25 Oct 2026 07:00:26 GMT",
+    "server": "uvicorn",
+    "content-length": "99",
+    "content-type": "application/json",
+    "x-request-id": "119639dc-1c2b-4521-821d-8197d2b0403d",
+    "connection": "close"
+  },
+  "response_request_id": "119639dc-1c2b-4521-821d-8197d2b0403d",
+  "response_body_raw": "{\"status\":\"ok\",\"demand_model_loaded\":true,\"fare_model_loaded\":true,\"history_hours\":744,\"zones\":253}"
+}
