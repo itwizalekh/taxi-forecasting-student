@@ -1,0 +1,6 @@
+{
+  "command": ".\\scripts\\ci_local.ps1 -NoTerraform",
+  "cwd": "C:\\Data\\BITS\\labs\\taxi-forecasting-student",
+  "terraform": "explicitly skipped with -NoTerraform",
+  "exit_code": 0
+}

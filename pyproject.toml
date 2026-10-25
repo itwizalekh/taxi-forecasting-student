@@ -17,7 +17,9 @@ fail_under = 75
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = [".venv", "mlruns", "data", "artifacts", "notebooks"]
+# Evidence contains preserved reference/source snapshots with recorded hashes.
+# Lint maintained application, test and script code without rewriting archives.
+extend-exclude = [".venv", "mlruns", "data", "artifacts", "notebooks", "evidence"]
 
 [tool.ruff.lint]
 # E/W: pycodestyle, F: pyflakes, I: isort, UP: pyupgrade, B: bugbear

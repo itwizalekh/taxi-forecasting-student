@@ -1,0 +1,69 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index cc46262..de1a6b4 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -17,7 +17,9 @@ fail_under = 75
+ [tool.ruff]
+ line-length = 100
+ target-version = "py311"
+-extend-exclude = [".venv", "mlruns", "data", "artifacts", "notebooks"]
++# Evidence contains preserved reference/source snapshots with recorded hashes.
++# Lint maintained application, test and script code without rewriting archives.
++extend-exclude = [".venv", "mlruns", "data", "artifacts", "notebooks", "evidence"]
+ 
+ [tool.ruff.lint]
+ # E/W: pycodestyle, F: pyflakes, I: isort, UP: pyupgrade, B: bugbear
+diff --git a/scripts/learner_demand_history.py b/scripts/learner_demand_history.py
+index ef188a1..834573c 100644
+--- a/scripts/learner_demand_history.py
++++ b/scripts/learner_demand_history.py
+@@ -1,6 +1,5 @@
+ import pandas as pd
+ 
+-
+ ZONE = "PULocationID"
+ TIME = "pickup_hour"
+ TARGET = "pickup_count"
+@@ -247,7 +246,7 @@ recursive_history = observed.copy()
+ one_step_predictions = []
+ recursive_predictions = []
+ 
+-for timestamp, actual in future_actuals.items():
++for _timestamp, actual in future_actuals.items():
+     # Rolling one-step evaluation predicts this hour using only data available
+     # before it. After the hour has passed, its actual is observed and can
+     # legitimately become history for predicting the next hour.
+diff --git a/tests/integration/test_api.py b/tests/integration/test_api.py
+index cfa21fe..a52014f 100644
+--- a/tests/integration/test_api.py
++++ b/tests/integration/test_api.py
+@@ -14,6 +14,7 @@ import pandas as pd
+ import pytest
+ 
+ from src.serving.api import _capture_prediction
++from src.serving.service import get_service
+ 
+ 
+ def test_capture_prediction_emits_structured_info_record():
+@@ -169,8 +170,11 @@ def test_explain_demand_unknown_zone_returns_400(client):
+     assert resp.status_code == 400
+ 
+ 
+-def test_forecast_demand_endpoint(client):
++@pytest.mark.parametrize("model_reference", ["latest", "1"])
++def test_forecast_demand_endpoint(client, monkeypatch, model_reference):
+     c, demand = client
++    # Reference reporting must follow service configuration, including numeric pins.
++    monkeypatch.setitem(get_service().config.serving, "model_stage", model_reference)
+     zone = int(demand["PULocationID"].iloc[0])
+     resp = c.post(
+         "/forecast/demand",
+@@ -180,7 +184,7 @@ def test_forecast_demand_endpoint(client):
+     body = resp.json()
+     assert body["horizon_hours"] == 3
+     assert body["zones"] == 1
+-    assert body["model_reference"] == "latest"
++    assert body["model_reference"] == model_reference
+     assert body["request_id"]
+     assert len(body["points"]) == 3
+     for point in body["points"]:

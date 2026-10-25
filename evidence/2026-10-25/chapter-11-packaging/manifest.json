@@ -1,0 +1,111 @@
+{
+  "captured_at_utc": "2026-10-25T09:15:44.512549+00:00",
+  "git_revision": "c1e8a26d138017a6f2f93055517891c1af18cbb7",
+  "working_tree_status": " M config/config.yaml\n M docs/L2_FARE_METRICS_LAB.md\n M docs/STRICT_DEMAND_NEXT_STEPS.md\n M pyproject.toml\n M scripts/learner_demand_history.py\n M tests/integration/test_api.py\n?? docs/CHAPTER_11_PACKAGING_NEXT_STEPS.md\n?? evidence/2026-10-24/learner-demand-time/stage-runs-v1/\n?? evidence/2026-10-25/chapter-10-a05/\n?? evidence/2026-10-25/chapter-11-packaging/\n?? src/release_gate.py\n?? tests/unit/test_release_gate.py\n",
+  "scope": "Local CI repair and portable-registry preparation only",
+  "ci": {
+    "exit_code": 0,
+    "tests_passed": 149,
+    "coverage_percent": 95.02,
+    "terraform": "skipped"
+  },
+  "container_build_runtime": "not executed; Docker CLI unavailable on PATH",
+  "hosted_execution": "not executed",
+  "files": {
+    "checked-sources/config/config.yaml": {
+      "sha256": "19f22fcb1863997d85c353118bc43babddacd1753064d59850b62dcdef88df2f",
+      "bytes": 2369
+    },
+    "checked-sources/docker/docker-compose.yml": {
+      "sha256": "8223d8bfc9004485f510f235144f517a9122e80424d7dbb73bbec2fa5d75ef55",
+      "bytes": 1471
+    },
+    "checked-sources/docker/Dockerfile": {
+      "sha256": "13f2e829856b13a8938a0e761e2789898e78d9e4b6f0fa168721c524bb1d3604",
+      "bytes": 1829
+    },
+    "checked-sources/pyproject.toml": {
+      "sha256": "f55b4aab22ac8d906d5387feb52bf3d323a144c75f812b56a6971f699fad00fd",
+      "bytes": 1137
+    },
+    "checked-sources/scripts/ci_local.ps1": {
+      "sha256": "d818990425054751eacc51b696a20735802bec345e3e64a8a42a598e9b1bd256",
+      "bytes": 2385
+    },
+    "checked-sources/scripts/learner_demand_history.py": {
+      "sha256": "3d8fe1334230c63dc26535f751935ad1808af35b78562531cdd9d031e1cd7069",
+      "bytes": 8668
+    },
+    "checked-sources/scripts/make_mlflow_portable.py": {
+      "sha256": "f9ecf406de546e2eb459bdeb0d7cbbdc12ac82d0742b260d1208557bf817d098",
+      "bytes": 3233
+    },
+    "checked-sources/src/release_gate.py": {
+      "sha256": "798efa910b9853f148486928d2cb13cc0bf4f59205a72422b3b68fd26a8197e0",
+      "bytes": 829
+    },
+    "checked-sources/tests/conftest.py": {
+      "sha256": "b3db0dc8b38bc806eeafedb6abcaca92c3fb51a55605f67eb8ec19de4f97f0f6",
+      "bytes": 1872
+    },
+    "checked-sources/tests/integration/test_api.py": {
+      "sha256": "a52f0e738daec3e9596668a3093f0fdca458e0ebd1c6b0518dd11c67c5eeed34",
+      "bytes": 6640
+    },
+    "checked-sources/tests/unit/test_release_gate.py": {
+      "sha256": "095a16a59400a595fec5bbd6d88d30315e276d528215caa2babf86b209b76978",
+      "bytes": 982
+    },
+    "coverage.xml": {
+      "sha256": "38289b278f85801998878f31c43d011684847a5817c816c6a88b67ab750ad44a",
+      "bytes": 61222
+    },
+    "docker-install-review.json": {
+      "sha256": "dfffbb769b9ed734aba6be49c800775fe88237ec838388e533b76b4875a1f23d",
+      "bytes": 583
+    },
+    "execution-environment-note.txt": {
+      "sha256": "0f9348affcfd4b244a5469d7f3b148f8dfb6228864855aca923875aa56d62166",
+      "bytes": 452
+    },
+    "learner-initial-ci-failure.txt": {
+      "sha256": "7c91d15a56de03916272b7401c42c4519c9a9855904fa7dc39f731b9bf2ca816",
+      "bytes": 7761
+    },
+    "local-ci-after-repair.txt": {
+      "sha256": "d71773a1e116ef646ad73c7fa5aa67fa809ee8a4daaca5116535962767f59171",
+      "bytes": 3715
+    },
+    "local-ci-execution.json": {
+      "sha256": "5bba21faaa265d3e3276a71311d462f4b12cd2eb2145f17ec990b8ba73b75427",
+      "bytes": 195
+    },
+    "packaging-prerequisites.json": {
+      "sha256": "c4ac5921890ce9bbbb80f1a5cf2b580b1dac7a7746ab29faaf346598bd7c57f8",
+      "bytes": 358
+    },
+    "PHASE_EVIDENCE_STATUS.md": {
+      "sha256": "d72aac90e64fd4e996cda7e14e990634de53d18aad69993f73c1f387f09ec707",
+      "bytes": 2258
+    },
+    "portable-registry-console.txt": {
+      "sha256": "f12a653d8cde19977e399217c986617f7d1fc5cd29e142df220b2aba0cdd510c",
+      "bytes": 82
+    },
+    "portable-registry-verification.json": {
+      "sha256": "9ea987e0bc7e33be5cb28fea519e68ba8baa1d2bff99869aafdc10e527763cfe",
+      "bytes": 4403
+    },
+    "README.md": {
+      "sha256": "ea3021e50e6fef72e83ee7db75b008ca63566b8969d3ed59a5b90b908ea2a0dd",
+      "bytes": 3113
+    },
+    "repair.patch": {
+      "sha256": "4fd6d529f6eddc16728eb18139168e822a6effc2d235d5326ec6c8c3b2061ea8",
+      "bytes": 2770
+    }
+  },
+  "prerequisites_reviewed_at_utc": "2026-10-25T09:27:05.832809+00:00",
+  "latest_container_prerequisite_status": "Docker installed; Compose config valid; engine unavailable at inspection",
+  "snapshot_additions": "release_gate source/test snapshots added during later review; these files already participated in recorded CI run"
+}

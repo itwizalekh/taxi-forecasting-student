@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 ZONE = "PULocationID"
 TIME = "pickup_hour"
 TARGET = "pickup_count"
@@ -247,7 +246,7 @@ recursive_history = observed.copy()
 one_step_predictions = []
 recursive_predictions = []
 
-for timestamp, actual in future_actuals.items():
+for _timestamp, actual in future_actuals.items():
     # Rolling one-step evaluation predicts this hour using only data available
     # before it. After the hour has passed, its actual is observed and can
     # legitimately become history for predicting the next hour.

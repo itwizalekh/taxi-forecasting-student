@@ -1,0 +1,166 @@
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\scripts\ci_local.ps1 -NoTerraform
+>> 
+
+=== Ruff lint ===
+evidence\2026-10-25\chapter-10-a05\recompute_metrics.py:16:5: B007 Loop control variable `zone` not used within loop body
+   |
+14 | assert np.isfinite(df[columns].to_numpy()).all(), "Nonfinite observations"
+15 | assert len(df) == 48 and df.zone.nunique() == 2, "Expected two zones x 24 hours"
+16 | for zone, part in df.groupby("zone"):
+   |     ^^^^ B007
+17 |     hours = part.hour.sort_values()
+18 |     assert len(hours) == 24 and hours.diff().dropna().eq(pd.Timedelta(hours=1)).all()
+   |
+   = help: Rename unused `zone` to `_zone`
+
+evidence\2026-10-25\chapter-10-followup-20261025-120359\day-3-checker-snapshot.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+   |
+ 1 |   """Small objective checks for a learner's functions. No mastery grade is inferred."""
+ 2 | / from __future__ import annotations
+ 3 | | import argparse
+ 4 | | import importlib.util
+ 5 | | import json
+ 6 | | import math
+ 7 | | from pathlib import Path
+ 8 | | 
+ 9 | | import numpy as np
+10 | | import pandas as pd
+11 | | 
+12 | | 
+13 | | def main():
+   | |_^ I001
+14 |       parser = argparse.ArgumentParser(description=__doc__)
+15 |       parser.add_argument("--submission", type=Path, required=True)
+   |
+   = help: Organize imports
+
+evidence\2026-10-25\chapter-10-followup-20261025-120359\day-3-checker-snapshot.py:9:17: F401 [*] `numpy` imported but unused
+   |
+ 7 | from pathlib import Path
+ 8 | 
+ 9 | import numpy as np
+   |                 ^^ F401
+10 | import pandas as pd
+   |
+   = help: Remove unused import: `numpy`
+
+scripts\learner_demand_history.py:1:1: I001 [*] Import block is un-sorted or un-formatted
+  |
+1 | / import pandas as pd
+2 | | 
+3 | | 
+4 | | ZONE = "PULocationID"
+  | |_^ I001
+5 |   TIME = "pickup_hour"
+6 |   TARGET = "pickup_count"
+  |
+  = help: Organize imports
+
+scripts\learner_demand_history.py:250:5: B007 Loop control variable `timestamp` not used within loop body
+    |
+248 | recursive_predictions = []
+249 | 
+250 | for timestamp, actual in future_actuals.items():
+    |     ^^^^^^^^^ B007
+251 |     # Rolling one-step evaluation predicts this hour using only data available
+252 |     # before it. After the hour has passed, its actual is observed and can
+    |
+    = help: Rename unused `timestamp` to `_timestamp`
+
+Found 5 errors.
+[*] 3 fixable with the `--fix` option (2 hidden fixes can be enabled with the `--unsafe-fixes` option).
+FAILED: Ruff lint (exit 1)
+
+=== Pytest + coverage ===
+...........F.................................................................................................... [ 75%]
+....................................                                                                             [100%]
+====================================================== FAILURES =======================================================
+____________________________________________ test_forecast_demand_endpoint ____________________________________________
+
+client = (<starlette.testclient.TestClient object at 0x000001B750400250>,       PULocationID         pickup_hour  pickup_count
+...     8 2024-01-14 22:00:00             4
+2687             8 2024-01-14 23:00:00             2
+
+[2688 rows x 3 columns])
+
+    def test_forecast_demand_endpoint(client):
+        c, demand = client
+        zone = int(demand["PULocationID"].iloc[0])
+        resp = c.post(
+            "/forecast/demand",
+            json={"horizon_hours": 3, "zones": [zone]},
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["horizon_hours"] == 3
+        assert body["zones"] == 1
+>       assert body["model_reference"] == "latest"
+E       AssertionError: assert '1' == 'latest'
+E         
+E         - latest
+E         + 1
+
+tests\integration\test_api.py:183: AssertionError
+================================================== warnings summary ===================================================
+.venv\Lib\site-packages\starlette\formparsers.py:12
+  C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\starlette\formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform win32, python 3.11.9-final-0 -----------
+Name                              Stmts   Miss  Cover   Missing
+---------------------------------------------------------------
+src\__init__.py                       1      0   100%
+src\aws\__init__.py                   3      0   100%
+src\aws\s3.py                        70      2    97%   27, 133
+src\aws\sagemaker.py                 35      0   100%
+src\config.py                        80      7    91%   90, 92, 99, 103, 105, 107, 109
+src\data\__init__.py                  0      0   100%
+src\data\aggregation.py              19      0   100%
+src\data\ingestion.py                51      4    92%   104-107
+src\data\splits.py                   34      1    97%   71
+src\data\validation.py               56      0   100%
+src\features\__init__.py              0      0   100%
+src\features\calendar.py             31      0   100%
+src\features\demand_features.py      45      0   100%
+src\features\fare_features.py        25      1    96%   43
+src\models\__init__.py                0      0   100%
+src\models\common.py                 74     11    85%   64, 74, 90, 107-115, 122, 151
+src\models\model_card.py             63      0   100%
+src\models\shap_utils.py             38      1    97%   32
+src\models\train.py                  70      0   100%
+src\models\tuning.py                 24      2    92%   28, 48
+src\monitoring\__init__.py            4      0   100%
+src\monitoring\capture.py            58      8    86%   40, 44-45, 53-54, 68, 95-96
+src\monitoring\drift.py              77      6    92%   45, 51, 75, 104, 145, 158
+src\monitoring\performance.py        25      1    96%   40
+src\release_gate.py                   2      0   100%
+src\responsible\__init__.py           4      0   100%
+src\responsible\explain.py           39      3    92%   33, 63, 73
+src\responsible\fairness.py          76      4    95%   40, 97, 103, 144
+src\responsible\model_card.py        27      0   100%
+src\serving\__init__.py               0      0   100%
+src\serving\api.py                   94      4    96%   87-88, 135, 145
+src\serving\batch.py                 53      5    91%   136-140
+src\serving\features.py              38      0   100%
+src\serving\predict.py               25      0   100%
+src\serving\registry.py              51      9    82%   39, 43, 46-49, 54, 57, 71
+src\serving\schemas.py               54      0   100%
+src\serving\service.py               80      3    96%   83, 128-130
+src\utils\__init__.py                 0      0   100%
+src\utils\mlflow_utils.py            39      1    97%   63
+---------------------------------------------------------------
+TOTAL                              1465     73    95%
+Coverage XML written to file coverage.xml
+
+Required test coverage of 75.0% reached. Total coverage: 95.02%
+=============================================== short test summary info ===============================================
+FAILED tests/integration/test_api.py::test_forecast_demand_endpoint - AssertionError: assert '1' == 'latest'
+1 failed, 147 passed, 1 warning in 25.00s
+FAILED: Pytest + coverage (exit 1)
+
+Skipping Terraform checks (-NoTerraform).
+
+CI FAILED - 2 check(s) failed: Ruff lint, Pytest + coverage
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student>                                                  

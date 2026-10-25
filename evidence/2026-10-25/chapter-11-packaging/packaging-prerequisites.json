@@ -1,0 +1,14 @@
+{
+  "mlflow.db": {
+    "exists": true,
+    "sha256": "beb8025a479d2921d153402eb2359725f172f4fe07dab237f502aa72dc965869"
+  },
+  "mlruns": {
+    "exists": true
+  },
+  "data/processed/demand_hourly.parquet": {
+    "exists": true,
+    "sha256": "da21702e6ba7a6d9eeff70e78b106347cd140a8734ae2aca831abc9431f21c66"
+  },
+  "docker_cli_on_path": null
+}

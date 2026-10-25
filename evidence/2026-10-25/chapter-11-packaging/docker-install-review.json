@@ -1,0 +1,12 @@
+{
+  "reviewed_at_utc": "2026-10-25T09:27:05.832809+00:00",
+  "docker_executable": "C:/Users/itwiz/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+  "docker_client_version": "29.7.2",
+  "compose_version": "v5.4.0",
+  "engine_connectivity": "failed: default context docker_engine named pipe not found",
+  "wsl_distribution": "Ubuntu",
+  "wsl_distribution_version": 2,
+  "wsl_distribution_state": "Stopped",
+  "compose_configuration_exit_code": 0,
+  "scope": "Read-only prerequisite review; Docker Desktop was not started and no image/container was built"
+}

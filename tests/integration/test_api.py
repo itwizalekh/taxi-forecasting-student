@@ -14,6 +14,7 @@ import pandas as pd
 import pytest
 
 from src.serving.api import _capture_prediction
+from src.serving.service import get_service
 
 
 def test_capture_prediction_emits_structured_info_record():
@@ -169,8 +170,11 @@ def test_explain_demand_unknown_zone_returns_400(client):
     assert resp.status_code == 400
 
 
-def test_forecast_demand_endpoint(client):
+@pytest.mark.parametrize("model_reference", ["latest", "1"])
+def test_forecast_demand_endpoint(client, monkeypatch, model_reference):
     c, demand = client
+    # Reference reporting must follow service configuration, including numeric pins.
+    monkeypatch.setitem(get_service().config.serving, "model_stage", model_reference)
     zone = int(demand["PULocationID"].iloc[0])
     resp = c.post(
         "/forecast/demand",
@@ -180,7 +184,7 @@ def test_forecast_demand_endpoint(client):
     body = resp.json()
     assert body["horizon_hours"] == 3
     assert body["zones"] == 1
-    assert body["model_reference"] == "latest"
+    assert body["model_reference"] == model_reference
     assert body["request_id"]
     assert len(body["points"]) == 3
     for point in body["points"]:
