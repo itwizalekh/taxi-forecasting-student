@@ -1,0 +1,41 @@
+{
+  "created_at_utc": "2026-10-25T03:03:18.575403+00:00",
+  "python": "3.11.9",
+  "git_head": "d404c56b221694f808fecc35d663d79a5974c48a",
+  "protocol_sha256": "819ea3b5adef54b1ffcb1e4df5f51ebe49f3e6a208d87d94b63f923436bf362d",
+  "source_sha256": {
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\scripts\\assess_strict_demand.py": "0ee3a8a52cffce02afc18ce432b41194915780605e9ec557740ee1317149b880",
+    "src\\serving\\batch.py": "9f1ae8c07e204bf1d8ee143b3be6f4de2d0178f5d9f893069304032b0a734ff6",
+    "src\\serving\\features.py": "654a2ddd4c2245bc5bdce231549db90b876aafff1c5380fd0d83177c32a6549e",
+    "src\\features\\demand_features.py": "34c724e0d6d0b8c2021fd87018314b26ab1dfe607009f8a6a7ee2e568afcd26a",
+    "src\\models\\common.py": "b4cfc3ef3a2a543a67f595e7b60ccb1b8041a398a46602a30e0bedc4257c5fa4",
+    "config\\config.yaml": "b2fed88a555f2560e5a83082ed5d807d18d19f3f90bced6f4f7fc5a0fee6a394"
+  },
+  "inputs_sha256": {
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\processed\\demand_hourly.parquet": "da21702e6ba7a6d9eeff70e78b106347cd140a8734ae2aca831abc9431f21c66",
+    "artifacts\\strict-demand\\candidate-your-run\\preflight.json": "4ee5bc971c352692ef7a9e55c3a7370fcafe786ee38964f044a4a78a36a718cc",
+    "artifacts\\strict-demand\\candidate-your-run\\training_summary.json": "5483bb54cd37378fc8de5b99e623632fbea9a52d787213c8f180f5021f5e99c5",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_train.parquet": "648b0ddcd475372b0091497085227e84d81e7d1baf31223c733e189f9c381bea",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_val.parquet": "7e2990472896d427ac3f7959e993273ed427ef3ea2b9df216a7d376942be59b1",
+    "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\data\\features\\demand_test.parquet": "35ebacdbad1c88f26f7429029e2eef4bfacb71db178ad57e29b831d523faac7b",
+    "data\\features\\strict-hourly-v1\\demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "data\\features\\strict-hourly-v1\\demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+    "data\\features\\strict-hourly-v1\\demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78"
+  },
+  "outputs_sha256": {
+    "assessment.json": "c716fd0074972b16c00f87c55383f5c633b7b7975bdb5dda55390813350eba4e",
+    "ASSESSMENT.md": "0f24b1fc1861f964a773dc0257a123c7fd7f144ffe13f1ddc61d252fe87759ea",
+    "backtest_predictions.csv.gz": "5732f0c08e12077b45f266a177943145608d71fff8cfdd8f003761d8fe750ea2",
+    "common_metrics.csv": "2c61647cdccffd0a40c822f31274334ec2d3cc390c8d30b146043a3cc8048acd",
+    "coverage.json": "20381b6bb326e4c258533892063cf459b7eac6fc3c176e3d697f8b9d74ca8ef4",
+    "first_origin_manual.csv": "eb9708a4f9f9a439023e19b0fd9c245fff559d7514149d9c4bdb75f0333fbdfb",
+    "horizon_errors.png": "587347ea1f813626309fd7464109ae15dcead13ee16921673b09bee73a4d7326",
+    "horizon_metrics.csv": "274e893ea947049eb2a4246da7c129159d7d7bf76242f034a4b1ff10ef3a2f19",
+    "leakage_and_serving_checks.json": "a538a2e7167e182018db9892fdda24e1eed5e3668f130638401d8f314e503a11",
+    "native_metrics.csv": "ebff4d9205ab10d0594fe14056b0e6bb23aa3989c2dcdc3a6a05761a4d042233",
+    "paired_manual_sample.csv": "7b691d4ec0da6b11dbc309c0da7277a21dafe7d3f0e5546549858e6ba709b91b",
+    "paired_predictions.csv.gz": "ef9114c6744d90cf7f3e688940befb746942fe4fec65fb32e92123df9fca3ea7",
+    "paired_subgroup_metrics.csv": "04701890d720914d5bbd978dd42c9f8371a0c1f9f4ff365bd75e18d3452a2cfc",
+    "protocol.json": "819ea3b5adef54b1ffcb1e4df5f51ebe49f3e6a208d87d94b63f923436bf362d"
+  }
+}

@@ -1,0 +1,65 @@
+2026-10-25 08:33:39,058 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.types
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 08:33:39,591 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 08:33:39,591 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 08:33:40,045 INFO Context impl SQLiteImpl.
+2026-10-25 08:33:40,045 INFO Will assume non-transactional DDL.
+2026-10-25 08:33:40,124 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:33:40,124 INFO Loading model for demand from models:/taxi-demand-forecaster-strict-hourly/1
+2026-10-25 08:33:40,607 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,637 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,667 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,698 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,729 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,758 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,794 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,826 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,866 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,907 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,950 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:40,983 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,025 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,083 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,128 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,186 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,244 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,297 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,351 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,401 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,444 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,499 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,548 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,591 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,637 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,671 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,712 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,759 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,802 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,846 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,890 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,933 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:41,970 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,014 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,052 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,095 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,136 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,182 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,229 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,274 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,320 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,374 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,434 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,483 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,531 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,580 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,631 INFO Demand feature table: 169 rows x 23 cols
+2026-10-25 08:33:42,680 INFO Demand feature table: 169 rows x 23 cols
+    model  rows     rmse      mae
+   legacy 14573 8.702230 2.534983
+candidate 14573 8.699152 2.524642
+PASS: all paired/horizon RMSE and MAE independently recomputed; candidate, zone 132, origin 2024-01-29 15:00:00 matches serving row replay at all 24 leads; future mutation invariant.
+Manual-check evidence: artifacts\strict-demand\assessment-production-manual-candidate

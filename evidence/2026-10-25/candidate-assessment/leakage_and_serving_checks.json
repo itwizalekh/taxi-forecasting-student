@@ -1,0 +1,146 @@
+[
+  {
+    "origin": "2024-01-29 15:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-29 15:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-29 21:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-29 21:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 03:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 03:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 09:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 09:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 15:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 15:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 21:00:00",
+    "model": "legacy",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  },
+  {
+    "origin": "2024-01-30 21:00:00",
+    "model": "candidate",
+    "future_actuals_perturbation": "PASS",
+    "rows_verified": 6072,
+    "serving_reference_zones": [
+      1,
+      135,
+      265
+    ],
+    "max_feature_difference": 0.0
+  }
+]

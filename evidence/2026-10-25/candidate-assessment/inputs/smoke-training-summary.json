@@ -1,0 +1,41 @@
+{
+  "problem": "demand",
+  "selection_metric": "rmse",
+  "best_estimator": "lightgbm",
+  "results": [
+    {
+      "estimator": "xgboost",
+      "val_metrics": {
+        "rmse": 8.647978017018167,
+        "mae": 2.6267709002746042,
+        "mape": 46.082959659924136,
+        "r2": 0.9597970834987609
+      },
+      "test_metrics": {
+        "rmse": 9.2335120499209,
+        "mae": 2.660411655164194,
+        "mape": 41.41819861064287,
+        "r2": 0.9669196804523513
+      },
+      "run_id": "5073fb38c6694ee888894b6949799cc2"
+    },
+    {
+      "estimator": "lightgbm",
+      "val_metrics": {
+        "rmse": 8.370166621136734,
+        "mae": 2.5439004751130914,
+        "mape": 43.95077505054798,
+        "r2": 0.9623385867698163
+      },
+      "test_metrics": {
+        "rmse": 8.59742578385043,
+        "mae": 2.5302015567338625,
+        "mape": 40.17247258576574,
+        "r2": 0.9713204239917367
+      },
+      "run_id": "5496a0301b034552943622af6c070bfc"
+    }
+  ],
+  "registered": null,
+  "artifacts_dir": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\artifacts\\strict-demand\\smoke-your-run\\model_artifacts\\demand"
+}

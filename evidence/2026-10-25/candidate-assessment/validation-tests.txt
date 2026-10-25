@@ -1,0 +1,55 @@
+........................................................................ [ 51%]
+.....................................................................    [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\starlette\formparsers.py:12
+  C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\starlette\formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform win32, python 3.11.9-final-0 -----------
+Name                              Stmts   Miss  Cover
+-----------------------------------------------------
+src\__init__.py                       1      0   100%
+src\aws\__init__.py                   3      0   100%
+src\aws\s3.py                        70      2    97%
+src\aws\sagemaker.py                 35      0   100%
+src\config.py                        80      7    91%
+src\data\__init__.py                  0      0   100%
+src\data\aggregation.py              19      0   100%
+src\data\ingestion.py                51      4    92%
+src\data\splits.py                   34      1    97%
+src\data\validation.py               56      0   100%
+src\features\__init__.py              0      0   100%
+src\features\calendar.py             31      0   100%
+src\features\demand_features.py      45      0   100%
+src\features\fare_features.py        25      1    96%
+src\models\__init__.py                0      0   100%
+src\models\common.py                 74     11    85%
+src\models\model_card.py             63      0   100%
+src\models\shap_utils.py             38      1    97%
+src\models\train.py                  70      0   100%
+src\models\tuning.py                 24      2    92%
+src\monitoring\__init__.py            4      0   100%
+src\monitoring\capture.py            58      8    86%
+src\monitoring\drift.py              77      6    92%
+src\monitoring\performance.py        25      1    96%
+src\responsible\__init__.py           4      0   100%
+src\responsible\explain.py           39      3    92%
+src\responsible\fairness.py          76      4    95%
+src\responsible\model_card.py        27      0   100%
+src\serving\__init__.py               0      0   100%
+src\serving\api.py                   94      4    96%
+src\serving\batch.py                 53      5    91%
+src\serving\features.py              38      0   100%
+src\serving\predict.py               25      0   100%
+src\serving\registry.py              51      9    82%
+src\serving\schemas.py               54      0   100%
+src\serving\service.py               80      3    96%
+src\utils\__init__.py                 0      0   100%
+src\utils\mlflow_utils.py            39      1    97%
+-----------------------------------------------------
+TOTAL                              1463     73    95%
+
+Required test coverage of 75.0% reached. Total coverage: 95.01%
+141 passed, 1 warning in 32.15s

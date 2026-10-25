@@ -1,0 +1,236 @@
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.train_strict_demand --mode check --output artifacts/strict-demand/preflight-your-run
+{
+  "mode": "check",
+  "candidate_registry_name": "taxi-demand-forecaster-strict-hourly",
+  "split_periods": {
+    "train": {
+      "rows": 116380,
+      "hours": 460,
+      "zones": 253,
+      "start": "2024-01-08 00:00:00",
+      "end": "2024-01-27 03:00:00"
+    },
+    "val": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-27 04:00:00",
+      "end": "2024-01-29 13:00:00"
+    },
+    "test": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-29 14:00:00",
+      "end": "2024-01-31 23:00:00"
+    }
+  },
+  "input_sha256": {
+    "demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+    "demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78"
+  },
+  "feature_columns": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_3",
+    "rolling_std_3",
+    "rolling_mean_24",
+    "rolling_std_24",
+    "rolling_mean_168",
+    "rolling_std_168"
+  ],
+  "seed": 42,
+  "n_trials": null,
+  "selection_metric": "rmse",
+  "evaluation_scope": "January diagnostic rolling one-step benchmark; not an untouched final test or fixed-origin backtest."
+}
+Preflight passed. No model trained or registered.
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.train_strict_demand --mode smoke --output artifacts/strict-demand/smoke-your-run
+{
+  "mode": "smoke",
+  "candidate_registry_name": "taxi-demand-forecaster-strict-hourly",
+  "split_periods": {
+    "train": {
+      "rows": 116380,
+      "hours": 460,
+      "zones": 253,
+      "start": "2024-01-08 00:00:00",
+      "end": "2024-01-27 03:00:00"
+    },
+    "val": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-27 04:00:00",
+      "end": "2024-01-29 13:00:00"
+    },
+    "test": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-29 14:00:00",
+      "end": "2024-01-31 23:00:00"
+    }
+  },
+  "input_sha256": {
+    "demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+    "demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78"
+  },
+  "feature_columns": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_3",
+    "rolling_std_3",
+    "rolling_mean_24",
+    "rolling_std_24",
+    "rolling_mean_168",
+    "rolling_std_168"
+  ],
+  "seed": 42,
+  "n_trials": 1,
+  "selection_metric": "rmse",
+  "evaluation_scope": "January diagnostic rolling one-step benchmark; not an untouched final test or fixed-origin backtest."
+}
+2026-10-25 08:00:55,393 INFO [demand] train=116380 val=14674 test=14674, tuning ['xgboost', 'lightgbm'] with 1 trials each
+2026-10-25 08:00:58,019 INFO Tuned xgboost: best val RMSE=8.6480 over 1 trials
+2026-10-25 08:01:00,351 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.types
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 08:01:00,791 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 08:01:00,791 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 08:01:01,060 INFO Context impl SQLiteImpl.
+2026-10-25 08:01:01,060 INFO Will assume non-transactional DDL.
+2026-10-25 08:01:11,647 INFO [demand] xgboost: val_rmse=8.6480 test_rmse=9.2335
+2026-10-25 08:01:15,016 INFO Tuned lightgbm: best val RMSE=8.3702 over 1 trials
+2026-10-25 08:01:17,282 INFO MLflow tracking URI: sqlite:///mlflow.db
+C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\_distutils_hack\__init__.py:18: UserWarning: Distutils was imported before Setuptools, but importing Setuptools also replaces the `distutils` module in `sys.modules`. This may lead to undesirable behaviors or errors. To avoid these issues, avoid using distutils directly, ensure that setuptools is installed in the traditional way(e.g. not an editable install), and/or make sure that setuptools is always imported before distutils.
+  warnings.warn(
+C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\_distutils_hack\__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+2026-10-25 08:01:21,773 INFO [demand] lightgbm: val_rmse=8.3702 test_rmse=8.5974
+2026-10-25 08:01:21,774 INFO [demand] best estimator: lightgbm
+2026-10-25 08:01:28,215 INFO Saved SHAP plots to C:\Data\BITS\labs\taxi-forecasting-student\artifacts\strict-demand\smoke-your-run\model_artifacts\demand
+2026-10-25 08:01:28,217 INFO Wrote model card: C:\Data\BITS\labs\taxi-forecasting-student\artifacts\strict-demand\smoke-your-run\model_artifacts\demand\demand_model_card.md
+2026-10-25 08:01:28,217 INFO MLflow tracking URI: sqlite:///mlflow.db
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.train_strict_demand --mode train --n-trials 25 --register --output artifacts/strict-demand/candidate-your-run
+{
+  "mode": "train",
+  "candidate_registry_name": "taxi-demand-forecaster-strict-hourly",
+  "split_periods": {
+    "train": {
+      "rows": 116380,
+      "hours": 460,
+      "zones": 253,
+      "start": "2024-01-08 00:00:00",
+      "end": "2024-01-27 03:00:00"
+    },
+    "val": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-27 04:00:00",
+      "end": "2024-01-29 13:00:00"
+    },
+    "test": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-29 14:00:00",
+      "end": "2024-01-31 23:00:00"
+    }
+  },
+  "input_sha256": {
+    "demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+    "demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78"
+  },
+  "feature_columns": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_3",
+    "rolling_std_3",
+    "rolling_mean_24",
+    "rolling_std_24",
+    "rolling_mean_168",
+    "rolling_std_168"
+  ],
+  "seed": 42,
+  "n_trials": 25,
+  "selection_metric": "rmse",
+  "evaluation_scope": "January diagnostic rolling one-step benchmark; not an untouched final test or fixed-origin backtest."
+}
+2026-10-25 08:01:38,912 INFO [demand] train=116380 val=14674 test=14674, tuning ['xgboost', 'lightgbm'] with 25 trials each
+2026-10-25 08:02:45,437 INFO Tuned xgboost: best val RMSE=8.1303 over 25 trials
+2026-10-25 08:02:48,482 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.types
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 08:02:48,981 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 08:02:48,981 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 08:02:49,214 INFO Context impl SQLiteImpl.
+2026-10-25 08:02:49,214 INFO Will assume non-transactional DDL.
+2026-10-25 08:02:55,720 INFO [demand] xgboost: val_rmse=8.1303 test_rmse=8.6842
+2026-10-25 08:03:41,325 INFO Tuned lightgbm: best val RMSE=8.3141 over 25 trials
+2026-10-25 08:03:43,890 INFO MLflow tracking URI: sqlite:///mlflow.db
+C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\_distutils_hack\__init__.py:18: UserWarning: Distutils was imported before Setuptools, but importing Setuptools also replaces the `distutils` module in `sys.modules`. This may lead to undesirable behaviors or errors. To avoid these issues, avoid using distutils directly, ensure that setuptools is installed in the traditional way(e.g. not an editable install), and/or make sure that setuptools is always imported before distutils.
+  warnings.warn(
+C:\Data\BITS\labs\taxi-forecasting-student\.venv\Lib\site-packages\_distutils_hack\__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+2026-10-25 08:03:48,420 INFO [demand] lightgbm: val_rmse=8.3141 test_rmse=8.5518
+2026-10-25 08:03:48,420 INFO [demand] best estimator: xgboost
+2026-10-25 08:03:57,774 INFO Saved SHAP plots to C:\Data\BITS\labs\taxi-forecasting-student\artifacts\strict-demand\candidate-your-run\model_artifacts\demand
+2026-10-25 08:03:57,774 INFO Wrote model card: C:\Data\BITS\labs\taxi-forecasting-student\artifacts\strict-demand\candidate-your-run\model_artifacts\demand\demand_model_card.md
+2026-10-25 08:03:57,774 INFO MLflow tracking URI: sqlite:///mlflow.db
+Successfully registered model 'taxi-demand-forecaster-strict-hourly'.
+Created version '1' of model 'taxi-demand-forecaster-strict-hourly'.
+2026-10-25 08:03:57,916 INFO Registered taxi-demand-forecaster-strict-hourly version 1 from run 2f79615caca841f2b44b7627c4de5a96
+2026-10-25 08:03:57,935 INFO Analysing demand
+2026-10-25 08:03:57,935 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:03:57,935 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:03:57,935 INFO Loading model for demand from models:/taxi-demand-forecaster-strict-hourly/1
+2026-10-25 08:04:14,697 INFO demand: wrote model card + fairness JSON (3 flagged dimensions)
+Candidate: models:/taxi-demand-forecaster-strict-hourly/1
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> 

@@ -1,0 +1,44 @@
+{
+  "problem": "demand",
+  "selection_metric": "rmse",
+  "best_estimator": "xgboost",
+  "results": [
+    {
+      "estimator": "xgboost",
+      "val_metrics": {
+        "rmse": 8.130270167300512,
+        "mae": 2.4911967814612535,
+        "mape": 43.602141391804786,
+        "r2": 0.9644664694267685
+      },
+      "test_metrics": {
+        "rmse": 8.684194413727168,
+        "mae": 2.520751648694729,
+        "mape": 40.207212734589,
+        "r2": 0.9707386114864806
+      },
+      "run_id": "2f79615caca841f2b44b7627c4de5a96"
+    },
+    {
+      "estimator": "lightgbm",
+      "val_metrics": {
+        "rmse": 8.314128894173548,
+        "mae": 2.5615304443830755,
+        "mape": 45.429933621628244,
+        "r2": 0.9628411801804192
+      },
+      "test_metrics": {
+        "rmse": 8.55178473874536,
+        "mae": 2.5307233953031325,
+        "mape": 41.11808564036828,
+        "r2": 0.9716241175413848
+      },
+      "run_id": "089355bbabcc495d927be60ba91da6ea"
+    }
+  ],
+  "registered": {
+    "name": "taxi-demand-forecaster-strict-hourly",
+    "version": 1
+  },
+  "artifacts_dir": "C:\\Data\\BITS\\labs\\taxi-forecasting-student\\artifacts\\strict-demand\\candidate-your-run\\model_artifacts\\demand"
+}

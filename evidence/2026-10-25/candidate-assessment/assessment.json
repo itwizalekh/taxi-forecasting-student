@@ -1,0 +1,302 @@
+{
+  "native_metrics": [
+    {
+      "model": "legacy",
+      "rows": 14573,
+      "rmse": 8.70222957112466,
+      "mae": 2.5349826042597443,
+      "mape": 40.19191196345925,
+      "r2": 0.9707433535520196
+    },
+    {
+      "model": "candidate",
+      "rows": 14674,
+      "rmse": 8.684194413727168,
+      "mae": 2.520751648694729,
+      "mape": 40.207212734589,
+      "r2": 0.9707386114864806
+    }
+  ],
+  "common_metrics": [
+    {
+      "model": "legacy",
+      "rows": 14573,
+      "rmse": 8.70222957112466,
+      "mae": 2.5349826042597443,
+      "mape": 40.19191196345925,
+      "r2": 0.9707433535520196
+    },
+    {
+      "model": "candidate",
+      "rows": 14573,
+      "rmse": 8.699151972466844,
+      "mae": 2.524641702393862,
+      "mape": 40.14733052623517,
+      "r2": 0.9707640434898012
+    }
+  ],
+  "matching": {
+    "old_rows": 14573,
+    "strict_rows": 14674,
+    "common_rows": 14573,
+    "old_only_rows": 0,
+    "strict_only_rows": 101,
+    "union_rows": 14674,
+    "features_and_targets_identical": true
+  },
+  "backtest": {
+    "origins": 6,
+    "zones": 253,
+    "series": 4,
+    "rows_per_model_per_lead": 1518,
+    "total_forecast_rows": 145728,
+    "selected_horizons": [
+      {
+        "model": "candidate",
+        "horizon": 1,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 10.603932100818145,
+        "mae": 2.878809090909091,
+        "mape": 37.30283487156198,
+        "r2": 0.9610458828407558
+      },
+      {
+        "model": "candidate",
+        "horizon": 3,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 10.707736453981529,
+        "mae": 3.005406916996048,
+        "mape": 48.73584784060728,
+        "r2": 0.9501046121624982
+      },
+      {
+        "model": "candidate",
+        "horizon": 6,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 9.2076121533863,
+        "mae": 2.4042999341238467,
+        "mape": 40.5675798133121,
+        "r2": 0.9637823679864862
+      },
+      {
+        "model": "candidate",
+        "horizon": 12,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 8.379842394401768,
+        "mae": 2.264693741765481,
+        "mape": 40.43434079568916,
+        "r2": 0.9696034684340136
+      },
+      {
+        "model": "candidate",
+        "horizon": 24,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 9.57655102109648,
+        "mae": 2.7409909749670622,
+        "mape": 38.94878999025599,
+        "r2": 0.9713178346451906
+      },
+      {
+        "model": "legacy",
+        "horizon": 1,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 10.699415667120615,
+        "mae": 2.890237154150198,
+        "mape": 37.53098472080992,
+        "r2": 0.9603411962973899
+      },
+      {
+        "model": "legacy",
+        "horizon": 3,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 11.132323043588208,
+        "mae": 3.057331422924901,
+        "mape": 48.79690721666789,
+        "r2": 0.9460692255772667
+      },
+      {
+        "model": "legacy",
+        "horizon": 6,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 9.723634652376916,
+        "mae": 2.4475691040843217,
+        "mape": 41.103579947568925,
+        "r2": 0.9596091230813296
+      },
+      {
+        "model": "legacy",
+        "horizon": 12,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 8.502461353725801,
+        "mae": 2.3193979578392625,
+        "mape": 41.47918283385727,
+        "r2": 0.9687073989958976
+      },
+      {
+        "model": "legacy",
+        "horizon": 24,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 9.944936051745811,
+        "mae": 2.844757246376812,
+        "mape": 39.10836699244755,
+        "r2": 0.9690687357439169
+      },
+      {
+        "model": "persistence",
+        "horizon": 1,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 12.167663792229707,
+        "mae": 3.565876152832675,
+        "mape": 54.863149667178334,
+        "r2": 0.9487098591200405
+      },
+      {
+        "model": "persistence",
+        "horizon": 3,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 28.443180074556068,
+        "mae": 7.536231884057971,
+        "mape": 100.63840261678646,
+        "r2": 0.6479362119938448
+      },
+      {
+        "model": "persistence",
+        "horizon": 6,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 44.64827409258549,
+        "mae": 13.572463768115941,
+        "mape": 547.9098743364145,
+        "r2": 0.148400558258722
+      },
+      {
+        "model": "persistence",
+        "horizon": 12,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 53.1554200667904,
+        "mae": 17.08102766798419,
+        "mape": 609.0229116898423,
+        "r2": -0.22305908679685116
+      },
+      {
+        "model": "persistence",
+        "horizon": 24,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 12.831301278129143,
+        "mae": 3.419631093544137,
+        "mape": 51.23708627058352,
+        "r2": 0.9485085542117322
+      },
+      {
+        "model": "weekly",
+        "horizon": 1,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 10.638601501007226,
+        "mae": 3.059947299077734,
+        "mape": 44.00379494415528,
+        "r2": 0.9607907466120715
+      },
+      {
+        "model": "weekly",
+        "horizon": 3,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 10.474732757949539,
+        "mae": 2.6449275362318843,
+        "mape": 51.31986533422429,
+        "r2": 0.9522524646430006
+      },
+      {
+        "model": "weekly",
+        "horizon": 6,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 8.328285691304949,
+        "mae": 2.2733860342555996,
+        "mape": 49.98741099285721,
+        "r2": 0.9703696182950917
+      },
+      {
+        "model": "weekly",
+        "horizon": 12,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 7.885711967091589,
+        "mae": 2.2859025032938076,
+        "mape": 52.04618927088862,
+        "r2": 0.9730825354654767
+      },
+      {
+        "model": "weekly",
+        "horizon": 24,
+        "rows": 1518,
+        "origins": 6,
+        "rmse": 8.965017652072765,
+        "mae": 2.8511198945981553,
+        "mape": 48.297042935374236,
+        "r2": 0.9748640108833706
+      }
+    ]
+  },
+  "coverage": {
+    "test_hours": 58,
+    "test_days": 3,
+    "weekend_hours": 0,
+    "holiday_hours": 0,
+    "holiday_dates": [],
+    "planned_february_calendar": {
+      "hours": 696,
+      "weekend_dates": 8,
+      "holiday_dates": [
+        "2024-02-19"
+      ]
+    }
+  },
+  "candidate_selection": {
+    "winner": "xgboost",
+    "validation_rmse": 8.130270167300512,
+    "trial_budget": 25
+  },
+  "checks_passed": 12,
+  "model_artifact_sha256": {
+    "legacy": {
+      "conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+      "metadata/conda.yaml": "1efb334a7943352d92956c43e63383c542b73c6a917b021b59e0e8b545922a01",
+      "metadata/MLmodel": "ebc3123ee5fac8d39117dd040a8621583f735da3d99f8f976ffb3ed083518d67",
+      "metadata/python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+      "metadata/requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa",
+      "MLmodel": "ebc3123ee5fac8d39117dd040a8621583f735da3d99f8f976ffb3ed083518d67",
+      "model.pkl": "797bdbd741a58e817534e7ff58c48ac61249c9d5e1dc12cd37c3e19b01715966",
+      "python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+      "registered_model_meta": "6984704959822002a0886a93afee81ea633b86b22d0bdb74e1a6315f858f26f0",
+      "requirements.txt": "89d7585154eb9d2dc24055a24cea8d840326de96b91100256afdc92cfed857fa"
+    },
+    "candidate": {
+      "conda.yaml": "f172a66f00b6510709db16afd801a734e98b07e0b5d74b2ff0bdfaeeffcc0dc0",
+      "metadata/conda.yaml": "f172a66f00b6510709db16afd801a734e98b07e0b5d74b2ff0bdfaeeffcc0dc0",
+      "metadata/MLmodel": "709a9be25ad3af8e9b5a8c88a9be2168128ee8ba24f5502baa08cbcf9c03f831",
+      "metadata/python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+      "metadata/requirements.txt": "fe8192bc1f11efd7848cfd62473ebca48ad5d6d9b8dd6bae9e2b27634fd2c511",
+      "MLmodel": "709a9be25ad3af8e9b5a8c88a9be2168128ee8ba24f5502baa08cbcf9c03f831",
+      "model.pkl": "64a2b88832a5cdfc670b094b1925407a7f4df6b8efb9375e9f361fba41203feb",
+      "python_env.yaml": "218a6b9dcdaefa45dec93e4d6f44e334f2c29d2e8a0d67d75630dc248252609f",
+      "registered_model_meta": "b77639efb2fcba371cd4cc9da3a7f3852d75829babf82dd22d1db2e5fb28e93a",
+      "requirements.txt": "fe8192bc1f11efd7848cfd62473ebca48ad5d6d9b8dd6bae9e2b27634fd2c511"
+    }
+  }
+}

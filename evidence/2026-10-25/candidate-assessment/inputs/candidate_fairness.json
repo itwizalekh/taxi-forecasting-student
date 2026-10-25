@@ -1,0 +1,245 @@
+{
+  "problem": "demand",
+  "metrics": {
+    "rmse": 8.684194413727168,
+    "mae": 2.520751648694729,
+    "mape": 40.207212734589,
+    "r2": 0.9707386114864806
+  },
+  "provenance": {
+    "registry_name": "taxi-demand-forecaster-strict-hourly",
+    "requested_selector": "1",
+    "registry_version": "1",
+    "model_uri": "models:/taxi-demand-forecaster-strict-hourly/1",
+    "run_id": "2f79615caca841f2b44b7627c4de5a96",
+    "training_params": {
+      "estimator": "xgboost",
+      "n_trials": "25",
+      "n_estimators": "400",
+      "max_depth": "8",
+      "learning_rate": "0.020863846324830626",
+      "subsample": "0.7553314588012316",
+      "colsample_bytree": "0.6214096219292948",
+      "min_child_weight": "5",
+      "reg_lambda": "0.3206785905409241"
+    },
+    "generated_at_utc": "2026-10-25T02:33:58.068762+00:00",
+    "split_periods": {
+      "train": {
+        "rows": 116380,
+        "start": "2024-01-08 00:00:00",
+        "end": "2024-01-27 03:00:00"
+      },
+      "val": {
+        "rows": 14674,
+        "start": "2024-01-27 04:00:00",
+        "end": "2024-01-29 13:00:00"
+      },
+      "test": {
+        "rows": 14674,
+        "start": "2024-01-29 14:00:00",
+        "end": "2024-01-31 23:00:00"
+      }
+    },
+    "strict_timestamp_separation": true,
+    "input_sha256": {
+      "demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+      "demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+      "demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78",
+      "taxi_zone_lookup.csv": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed"
+    }
+  },
+  "evaluation_notes": [
+    "Configured data period: 2024-01.",
+    "Test period: 2024-01-29 14:00:00 to 2024-01-31 23:00:00; 14,674 rows. Stored timestamps are used without timezone conversion.",
+    "Strict timestamp separation across train/validation/test: True.",
+    "SHA256 hashes of evaluated splits and the zone lookup are recorded in the fairness JSON; these identify current evaluation inputs, not proof of original training-data identity.",
+    "Training trials per estimator recorded by MLflow: 25.",
+    "SHAP uses up to 2,000 test rows, sampled with random_state=42; it is explanatory, not causal.",
+    "Raw RMSE disparity depends on target scale and sample coverage; flags warrant investigation, not a demographic-discrimination conclusion. Groups smaller than 30 rows are omitted. MAPE excludes near-zero targets and can be large for small nonzero targets.",
+    "Demand evaluation uses historical lag features and supports a rolling one-step interpretation; later test rows use earlier actual counts. Fixed-origin multi-hour accuracy is not established.",
+    "The registered model is evaluated on configured splits with strictly separated timestamps; this does not establish fixed-origin multi-hour accuracy."
+  ],
+  "dimensions": [
+    {
+      "dimension": "borough",
+      "comparison_available": true,
+      "status": "flagged",
+      "disparity_ratio": 197.26244197785212,
+      "flagged": true,
+      "worst_group": "Manhattan",
+      "best_group": "Staten Island",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "borough",
+          "group": "Manhattan",
+          "n": 3886,
+          "rmse": 15.759363839408872,
+          "mae": 7.674504318496124,
+          "mape": 29.701274616051304
+        },
+        {
+          "dimension": "borough",
+          "group": "Queens",
+          "n": 4002,
+          "rmse": 5.869473591656886,
+          "mae": 1.1640975506648585,
+          "mape": 52.363893634976414
+        },
+        {
+          "dimension": "borough",
+          "group": "Unknown",
+          "n": 116,
+          "rmse": 3.2770836547391426,
+          "mae": 2.007320295633941,
+          "mape": 46.72548018856894
+        },
+        {
+          "dimension": "borough",
+          "group": "Brooklyn",
+          "n": 3480,
+          "rmse": 0.7408140999243941,
+          "mae": 0.4485258672648677,
+          "mape": 53.9077023722996
+        },
+        {
+          "dimension": "borough",
+          "group": "Bronx",
+          "n": 2494,
+          "rmse": 0.44325073508433915,
+          "mae": 0.2703004768480485,
+          "mape": 65.11652260664974
+        },
+        {
+          "dimension": "borough",
+          "group": "EWR",
+          "n": 58,
+          "rmse": 0.2702618135711857,
+          "mae": 0.1035696807445894,
+          "mape": 97.1641743555665
+        },
+        {
+          "dimension": "borough",
+          "group": "Staten Island",
+          "n": 638,
+          "rmse": 0.07989034142230822,
+          "mae": 0.052996724752744306,
+          "mape": 91.65323674678802
+        }
+      ]
+    },
+    {
+      "dimension": "time_of_day",
+      "comparison_available": true,
+      "status": "flagged",
+      "disparity_ratio": 2.5889343592093197,
+      "flagged": true,
+      "worst_group": "evening",
+      "best_group": "overnight",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "time_of_day",
+          "group": "evening",
+          "n": 4554,
+          "rmse": 11.965036946083533,
+          "mae": 3.3463690229626124,
+          "mape": 36.84230719694223
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "afternoon",
+          "n": 4048,
+          "rmse": 8.30057345921192,
+          "mae": 2.9267598340534438,
+          "mape": 36.579623581485514
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "morning",
+          "n": 3036,
+          "rmse": 6.044709845355622,
+          "mae": 2.3154793350131535,
+          "mape": 39.62913554054286
+        },
+        {
+          "dimension": "time_of_day",
+          "group": "overnight",
+          "n": 3036,
+          "rmse": 4.621606918507484,
+          "mae": 0.9462536538295246,
+          "mape": 56.9079838124375
+        }
+      ]
+    },
+    {
+      "dimension": "day_type",
+      "comparison_available": false,
+      "status": "insufficient_comparison",
+      "disparity_ratio": null,
+      "flagged": false,
+      "worst_group": "weekday",
+      "best_group": "weekday",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "day_type",
+          "group": "weekday",
+          "n": 14674,
+          "rmse": 8.684194413727168,
+          "mae": 2.520751648694729,
+          "mape": 40.207212734589
+        }
+      ]
+    },
+    {
+      "dimension": "holiday",
+      "comparison_available": false,
+      "status": "insufficient_comparison",
+      "disparity_ratio": null,
+      "flagged": false,
+      "worst_group": "non-holiday",
+      "best_group": "non-holiday",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "holiday",
+          "group": "non-holiday",
+          "n": 14674,
+          "rmse": 8.684194413727168,
+          "mae": 2.520751648694729,
+          "mape": 40.207212734589
+        }
+      ]
+    },
+    {
+      "dimension": "airport",
+      "comparison_available": true,
+      "status": "flagged",
+      "disparity_ratio": 4.141765720823335,
+      "flagged": true,
+      "worst_group": "airport",
+      "best_group": "non-airport",
+      "threshold": 1.5,
+      "subgroups": [
+        {
+          "dimension": "airport",
+          "group": "airport",
+          "n": 116,
+          "rmse": 33.87021963228899,
+          "mae": 25.134681613409313,
+          "mape": 33.79174943551053
+        },
+        {
+          "dimension": "airport",
+          "group": "non-airport",
+          "n": 14558,
+          "rmse": 8.17772465062461,
+          "mae": 2.3405609716850506,
+          "mape": 40.339330809950354
+        }
+      ]
+    }
+  ]
+}

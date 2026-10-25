@@ -1,0 +1,23 @@
+2026-10-25 08:30:12,335 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.types
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 08:30:12,749 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 08:30:12,749 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 08:30:12,981 INFO Context impl SQLiteImpl.
+2026-10-25 08:30:12,982 INFO Will assume non-transactional DDL.
+2026-10-25 08:30:13,039 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:30:13,039 INFO Loading model for demand from models:/taxi-demand-forecaster/1
+2026-10-25 08:30:13,083 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:30:13,087 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 08:30:13,088 INFO Loading model for demand from models:/taxi-demand-forecaster-strict-hourly/1
+2026-10-25 08:30:13,182 INFO Protocol frozen before performance calculation: artifacts\strict-demand\assessment-2026-10-25-production\protocol.json
+2026-10-25 08:30:14,026 INFO Backtesting origin 2024-01-29 15:00:00 (253 zones, 24 hours)
+2026-10-25 08:30:40,130 INFO Backtesting origin 2024-01-29 21:00:00 (253 zones, 24 hours)
+2026-10-25 08:31:15,410 INFO Backtesting origin 2024-01-30 03:00:00 (253 zones, 24 hours)
+2026-10-25 08:31:46,167 INFO Backtesting origin 2024-01-30 09:00:00 (253 zones, 24 hours)
+2026-10-25 08:32:14,882 INFO Backtesting origin 2024-01-30 15:00:00 (253 zones, 24 hours)
+2026-10-25 08:32:45,296 INFO Backtesting origin 2024-01-30 21:00:00 (253 zones, 24 hours)
+2026-10-25 08:33:18,776 INFO Assessment complete: artifacts\strict-demand\assessment-2026-10-25-production\ASSESSMENT.md

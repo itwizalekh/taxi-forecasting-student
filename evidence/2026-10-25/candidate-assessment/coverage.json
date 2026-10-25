@@ -1,0 +1,14 @@
+{
+  "test_hours": 58,
+  "test_days": 3,
+  "weekend_hours": 0,
+  "holiday_hours": 0,
+  "holiday_dates": [],
+  "planned_february_calendar": {
+    "hours": 696,
+    "weekend_dates": 8,
+    "holiday_dates": [
+      "2024-02-19"
+    ]
+  }
+}

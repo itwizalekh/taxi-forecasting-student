@@ -12,3 +12,6 @@
 # Captured prompts include trailing spaces; retain the original console bytes.
 /evidence/2026-10-25/shap-reconciliation/learner-console-*.txt -text whitespace=-blank-at-eol,cr-at-eol
 /evidence/2026-10-25/strict-demand-preflight/** -text whitespace=cr-at-eol
+/evidence/2026-10-25/candidate-assessment/** -text whitespace=cr-at-eol
+# Captured terminal prompts are retained byte-for-byte, including trailing spaces.
+/evidence/2026-10-25/candidate-assessment/inputs/learner-training-console.txt -text whitespace=-blank-at-eol,cr-at-eol

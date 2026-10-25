@@ -1,0 +1,58 @@
+{
+  "mode": "train",
+  "candidate_registry_name": "taxi-demand-forecaster-strict-hourly",
+  "split_periods": {
+    "train": {
+      "rows": 116380,
+      "hours": 460,
+      "zones": 253,
+      "start": "2024-01-08 00:00:00",
+      "end": "2024-01-27 03:00:00"
+    },
+    "val": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-27 04:00:00",
+      "end": "2024-01-29 13:00:00"
+    },
+    "test": {
+      "rows": 14674,
+      "hours": 58,
+      "zones": 253,
+      "start": "2024-01-29 14:00:00",
+      "end": "2024-01-31 23:00:00"
+    }
+  },
+  "input_sha256": {
+    "demand_train.parquet": "239513c23a3690f8bc5d969f92fa515e7ca56973ab83f2566b8ffe8a6ea99d07",
+    "demand_val.parquet": "c4b78364a2702a1e2e490f9a8ab1bafccc21476ffbd1626d57062afd7539e82a",
+    "demand_test.parquet": "4e44869f783977ababfb39fb46ad2a3ac34eb3260df5287f1200a93c60e8ed78"
+  },
+  "feature_columns": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_3",
+    "rolling_std_3",
+    "rolling_mean_24",
+    "rolling_std_24",
+    "rolling_mean_168",
+    "rolling_std_168"
+  ],
+  "seed": 42,
+  "n_trials": 25,
+  "selection_metric": "rmse",
+  "evaluation_scope": "January diagnostic rolling one-step benchmark; not an untouched final test or fixed-origin backtest."
+}
