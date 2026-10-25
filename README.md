@@ -68,7 +68,21 @@ activities require your own authorized configuration or the stated local fallbac
 Docker, Terraform and AWS are optional for local operation. The cloud templates
 are not connected to any account, remote repository or existing deployment.
 They can create billable resources if you explicitly deploy them with credentials.
-No GitHub Actions workflows or automatic release hooks are configured here.
+The [capstone workflow](.github/workflows/capstone.yml) runs on pushes to
+`responsible-analysis-evidence`. It executes a clean route with a temporary
+container deployment on the GitHub runner, then preserves execution evidence.
+Its presence is not evidence of a successful run; inspect the actual Actions result.
+
+## Capstone demonstration
+
+Follow the numbered [submission runbook](docs/CAPSTONE_SUBMISSION_STEPS.md).
+`python -m scripts.capstone_golden_path --mode verify` verifies an explicitly
+reused local setup without retraining or replacing its running API. It adds a
+new batch generation and writes separate drift/execution evidence. The
+`--mode fresh` route requires an unused checkout and generates data, trains,
+builds and deploys a temporary test container, and checks the remaining services.
+Fresh mode must succeed before claiming clean reproducibility. A successful
+server check does not replace the required manual dashboard interaction/video.
 
 Historical evaluation does not establish current production quality. The default
 forecast follows the latest stored history, not the current clock. Model errors,

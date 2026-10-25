@@ -15,7 +15,9 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN python -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip \
-    && /opt/venv/bin/pip install -r requirements.txt
+    && /opt/venv/bin/pip install -r requirements.txt \
+    && /opt/venv/bin/pip check \
+    && /opt/venv/bin/python -c "import mlflow.store.db.utils"
 
 # --- Runtime: copy venv + source ---------------------------------------------
 FROM python:3.11-slim AS runtime

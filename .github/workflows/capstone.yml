@@ -1,0 +1,53 @@
+name: Capstone clean run
+
+on:
+  push:
+    branches: [responsible-analysis-evidence]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: capstone-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  clean-capstone:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 70
+    env:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dashboard.txt
+      - name: Install project and dashboard dependencies
+        run: |
+          python -m pip install -r requirements.txt -r requirements-dashboard.txt
+          python -m pip check
+          python -c "import mlflow.store.db.utils"
+      - name: Execute clean pipeline, training, test deployment and analysis
+        run: python -m scripts.capstone_golden_path --mode fresh
+      - name: Publish execution summary
+        if: always()
+        run: |
+          find artifacts/capstone-runs -name SUMMARY.md -exec cat {} \; >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: capstone-evidence-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            artifacts/capstone-runs/
+            artifacts/responsible/
+            docs/model_cards/
+            data/processed/pipeline_summary.json

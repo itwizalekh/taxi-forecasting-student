@@ -15,6 +15,9 @@ optuna==3.6.1
 
 # Experiment tracking & explainability
 mlflow==2.14.1
+# MLflow 2.14 imports FallbackAsyncAdaptedQueuePool, absent in SQLAlchemy 2.1.
+# Match the working local registry environment rather than resolving 2.1 anew.
+SQLAlchemy==2.0.55
 shap==0.45.1
 matplotlib==3.9.0
 
