@@ -8,3 +8,7 @@
 /evidence/2026-10-24/learner-demand-time/** -text whitespace=cr-at-eol
 # Preserve captured responsible-analysis inputs, outputs and hash manifests byte-for-byte.
 /evidence/2026-10-25/responsible-analysis/** -text whitespace=cr-at-eol
+/evidence/2026-10-25/shap-reconciliation/** -text whitespace=cr-at-eol
+# Captured prompts include trailing spaces; retain the original console bytes.
+/evidence/2026-10-25/shap-reconciliation/learner-console-*.txt -text whitespace=-blank-at-eol,cr-at-eol
+/evidence/2026-10-25/strict-demand-preflight/** -text whitespace=cr-at-eol

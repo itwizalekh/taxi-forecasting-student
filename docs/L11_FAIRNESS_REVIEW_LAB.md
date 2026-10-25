@@ -34,8 +34,9 @@ For each qualifying group, retain these fields together:
 - `flagged`: `true` when the ratio is greater than the configured `1.5` threshold.
 
 A flag is an investigation trigger. It does not prove intent, causation,
-discrimination, or general fairness status. A ratio of `1.0` with only one
-qualifying group means there was no between-group comparison.
+discrimination, or general fairness status. A single qualifying group means there
+is no between-group comparison; current JSON reports a null ratio and
+`insufficient_comparison` rather than presenting parity.
 
 ## Task 1: Generate Responsible-AI Evidence
 
@@ -61,10 +62,12 @@ The command produces complementary evidence:
 SHAP describes fitted-model behavior; it does not explain the real-world cause
 of a subgroup difference.
 
-The current fairness JSON does not embed generation time, model version, or an
-explicit evaluation period. The model card supplies generation and available
-model context, while `docs/DATA_STATEMENT.md` supplies source-period context.
-Record any identity or period that remains unavailable as a provenance gap.
+The current fairness JSON embeds generation time, resolved numeric model identity,
+training run ID, split periods and input hashes under `provenance`. Confirm those
+fields against the selected model card. Single-group comparisons are marked
+`insufficient_comparison` with a null disparity ratio; they do not establish parity.
+Input hashes describe current evaluation files, not proof of the original training
+inputs. Record any remaining identity or period gap explicitly.
 
 ## Task 2: Publish Versioned AWS Evidence
 

@@ -1,0 +1,81 @@
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.responsible.reconcile_prediction --problem fare --version 1 --row 1 --analysis-dir evidence/2026-10-25/responsible-analysis/reviewed --output artifacts/learner-shap/fare-v1-row1-attached-your-run --attach-card
+2026-10-25 07:31:05,792 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.types
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 07:31:06,083 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 07:31:06,083 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 07:31:06,331 INFO Context impl SQLiteImpl.
+2026-10-25 07:31:06,331 INFO Will assume non-transactional DDL.
+2026-10-25 07:31:06,373 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:31:06,374 INFO Loading model for fare from models:/taxi-fare-predictor/1
+Attached card: runs:/431fcbd5c9784409994a95ea11453a87/scoped-explanations/fare-v1/46b12be2b3a544aa9db322844322edf1/scoped_card.md
+          feature  input_value  signed_contribution  running_total
+    trip_distance     1.840000            -3.636261      14.892036
+  passenger_count     1.000000            -0.047161      14.844876
+trip_duration_min     8.333333            -3.285747      11.559129
+     PULocationID   231.000000            -0.411126      11.148003
+     DOLocationID    90.000000            -0.312755      10.835248
+             hour    22.000000             0.003722      10.838970
+      day_of_week     6.000000             0.033442      10.872412
+            month     1.000000             0.000000      10.872412
+       is_weekend     1.000000            -0.002240      10.870172
+       is_holiday     0.000000            -0.000574      10.869598
+         hour_sin    -0.500000            -0.017209      10.852389
+         hour_cos     0.866025            -0.020225      10.832164
+          dow_sin    -0.781831            -0.012494      10.819670
+          dow_cos     0.623490            -0.001735      10.817935
+{
+  "base_value": 18.528296985013366,
+  "contribution_sum": -7.710362247940454,
+  "raw_prediction": 10.81793473707294,
+  "reconstructed": 10.817934737072912,
+  "residual": 2.842170943040401e-14
+}
+Evidence saved to artifacts\learner-shap\fare-v1-row1-attached-your-run
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.responsible.reconcile_prediction --problem demand --version 1 --row 1 --analysis-dir evidence/2026-10-25/responsible-analysis/reviewed --output artifacts/learner-shap/demand-v1-row1-attached-your-run --attach-card
+2026-10-25 07:31:32,793 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.types
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 07:31:33,102 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 07:31:33,102 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 07:31:33,418 INFO Context impl SQLiteImpl.
+2026-10-25 07:31:33,418 INFO Will assume non-transactional DDL.
+2026-10-25 07:31:33,461 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:31:33,461 INFO Loading model for demand from models:/taxi-demand-forecaster/1
+Attached card: runs:/771eb4d4470f4da9ab8467568f9a8f34/scoped-explanations/demand-v1/1f2beb282a6b4a35a8359115b026da0b/scoped_card.md
+         feature  input_value  signed_contribution  running_total
+            hour    14.000000             0.572782      15.385857
+     day_of_week     0.000000             0.882295      16.268152
+           month     1.000000             0.000000      16.268152
+      is_weekend     0.000000             0.002379      16.270532
+      is_holiday     0.000000             0.081074      16.351606
+        hour_sin    -0.500000            -0.239861      16.111745
+        hour_cos    -0.866025             0.987542      17.099287
+         dow_sin     0.000000            -0.438566      16.660721
+         dow_cos     1.000000             0.070385      16.731107
+           lag_1    34.000000             4.980037      21.711143
+           lag_2    33.000000            -0.670629      21.040514
+           lag_3    37.000000             0.780540      21.821054
+          lag_24    30.000000             4.122848      25.943902
+         lag_168    41.000000            12.687309      38.631212
+  rolling_mean_3    34.666667            -0.194544      38.436668
+   rolling_std_3     2.081666            -0.368696      38.067972
+ rolling_mean_24    18.583333            -1.514119      36.553853
+  rolling_std_24    14.583841            -0.461611      36.092241
+rolling_mean_168    22.303571             0.568007      36.660249
+ rolling_std_168    16.749210             0.125973      36.786221
+{
+  "base_value": 14.813075460037709,
+  "contribution_sum": 21.97314569587069,
+  "raw_prediction": 36.78622115590817,
+  "reconstructed": 36.7862211559084,
+  "residual": -2.2737367544323206e-13
+}
+Evidence saved to artifacts\learner-shap\demand-v1-row1-attached-your-run
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> 

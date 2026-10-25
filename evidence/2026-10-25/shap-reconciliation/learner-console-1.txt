@@ -1,0 +1,84 @@
+Evidence saved to artifacts\learner-shap\fare-v1-row1-y.\.venv\Scripts\python.exe -m scripts.responsible.reconcile_prediction --problem demand --version 1 --row 0 --analysis-dir evidence/2026-10-25/responsible-analysis/reviewed --output artifacts/learner-shap/demand-v1-row0-your-run
+2026-10-25 07:28:13,274 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:28:13,604 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 07:28:13,605 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 07:28:13,605 INFO setup plugin alembic.autogenerate.types
+2026-10-25 07:28:13,605 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 07:28:13,605 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 07:28:13,605 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 07:28:13,606 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 07:28:13,865 INFO Context impl SQLiteImpl.
+2026-10-25 07:28:13,865 INFO Will assume non-transactional DDL.
+2026-10-25 07:28:13,915 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:28:13,915 INFO Loading model for demand from models:/taxi-demand-forecaster/1
+         feature  input_value  signed_contribution  running_total
+            hour    14.000000             0.122835      14.935910
+     day_of_week     0.000000             0.275926      15.211836
+           month     1.000000             0.000000      15.211836
+      is_weekend     0.000000             0.000381      15.212216
+      is_holiday     0.000000             0.022859      15.235075
+        hour_sin    -0.500000            -0.011723      15.223353
+        hour_cos    -0.866025             0.277594      15.500947
+         dow_sin     0.000000            -0.042643      15.458304
+         dow_cos     1.000000             0.032322      15.490625
+           lag_1     1.000000            -7.387868       8.102757
+           lag_2     1.000000            -0.178598       7.924159
+           lag_3     0.000000             0.262051       8.186210
+          lag_24     0.000000            -2.436697       5.749513
+         lag_168     2.000000            -3.701011       2.048502
+  rolling_mean_3     0.666667            -0.717136       1.331366
+   rolling_std_3     0.577350            -0.315120       1.016246
+ rolling_mean_24     0.291667            -0.070472       0.945774
+  rolling_std_24     0.550033            -0.372091       0.573683
+rolling_mean_168     0.351190             0.042693       0.616375
+ rolling_std_168     0.684647            -0.042620       0.573756
+{
+  "base_value": 14.813075460037709,
+  "contribution_sum": -14.239319686429434,
+  "raw_prediction": 0.5737557736082441,
+  "reconstructed": 0.5737557736082746,
+  "residual": -3.042011087472929e-14
+}
+Evidence saved to artifacts\learner-shap\demand-v1-row0-your-run
+(.venv) PS C:\Data\BITS\labs\taxi-forecasting-student> .\.venv\Scripts\python.exe -m scripts.responsible.reconcile_prediction --problem demand --version 1 --row 1 --analysis-dir evidence/2026-10-25/responsible-analysis/reviewed --output artifacts/learner-shap/demand-v1-row1-your-run
+2026-10-25 07:28:31,178 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.schemas
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.tables
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.types
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.constraints
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.defaults
+2026-10-25 07:28:31,465 INFO setup plugin alembic.autogenerate.comments
+2026-10-25 07:28:31,465 INFO setup plugin alembic.ext.checkconstraint_byname
+2026-10-25 07:28:31,722 INFO Context impl SQLiteImpl.
+2026-10-25 07:28:31,722 INFO Will assume non-transactional DDL.
+2026-10-25 07:28:31,778 INFO MLflow tracking URI: sqlite:///mlflow.db
+2026-10-25 07:28:31,780 INFO Loading model for demand from models:/taxi-demand-forecaster/1
+         feature  input_value  signed_contribution  running_total
+            hour    14.000000             0.572782      15.385857
+     day_of_week     0.000000             0.882295      16.268152
+           month     1.000000             0.000000      16.268152
+      is_weekend     0.000000             0.002379      16.270532
+      is_holiday     0.000000             0.081074      16.351606
+        hour_sin    -0.500000            -0.239861      16.111745
+        hour_cos    -0.866025             0.987542      17.099287
+         dow_sin     0.000000            -0.438566      16.660721
+         dow_cos     1.000000             0.070385      16.731107
+           lag_1    34.000000             4.980037      21.711143
+           lag_2    33.000000            -0.670629      21.040514
+           lag_3    37.000000             0.780540      21.821054
+          lag_24    30.000000             4.122848      25.943902
+         lag_168    41.000000            12.687309      38.631212
+  rolling_mean_3    34.666667            -0.194544      38.436668
+   rolling_std_3     2.081666            -0.368696      38.067972
+ rolling_mean_24    18.583333            -1.514119      36.553853
+  rolling_std_24    14.583841            -0.461611      36.092241
+rolling_mean_168    22.303571             0.568007      36.660249
+ rolling_std_168    16.749210             0.125973      36.786221
+{
+  "base_value": 14.813075460037709,
+  "contribution_sum": 21.97314569587069,
+  "raw_prediction": 36.78622115590817,
+  "reconstructed": 36.7862211559084,
+  "residual": -2.2737367544323206e-13
+}
+Evidence saved to artifacts\learner-shap\demand-v1-row1-your-run

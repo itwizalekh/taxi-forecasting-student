@@ -22,9 +22,11 @@ accessible model artifacts. A one-trial model is sufficient for this exercise,
 not production approval. If a suitable version already exists, reuse it and
 record its identity instead of retraining. As in the finalized recording, record
 the configured reference `models:/taxi-fare-predictor/latest` unless configuration
-differs. The generated card currently shows registry version `n/a`; do not infer
-a numeric version from `latest`. Add a resolved version only when separately
-verified, and otherwise retain the identity gap.
+differs. The current analysis resolves that selector once and loads the numeric
+version, recording its URI and training run ID in the card and fairness JSON.
+Confirm those fields rather than inferring a numeric identity from `latest`.
+For a full-vector reconciliation and attachment exercise, follow
+[the hands-on SHAP guide](HANDS_ON_SHAP_AND_EVALUATION_PLAN.md).
 
 ## Task 1: Generate Fare Analysis
 

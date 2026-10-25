@@ -1,0 +1,87 @@
+{
+  "base_value": 18.528296985013366,
+  "contributions": {
+    "trip_distance": 32.11891701719892,
+    "passenger_count": -0.10176132639952033,
+    "trip_duration_min": 7.703532700073631,
+    "PULocationID": 5.550170582955606,
+    "DOLocationID": -1.1489449552297284,
+    "hour": 0.10015505095239828,
+    "day_of_week": 0.12392159008238686,
+    "month": 0.0,
+    "is_weekend": -0.0016643507504688075,
+    "is_holiday": -0.006499036495652834,
+    "hour_sin": -0.08298484672550126,
+    "hour_cos": 0.07315104330915885,
+    "dow_sin": 0.014516760427708265,
+    "dow_cos": 0.1494715971206683
+  },
+  "contribution_sum": 44.491981826519606,
+  "reconstructed": 63.020278811532975,
+  "raw_prediction": 63.020278811533146,
+  "residual": 1.7053025658242404e-13,
+  "tolerance": {
+    "relative": 1e-08,
+    "absolute": 1e-08
+  },
+  "model": {
+    "registry_name": "taxi-fare-predictor",
+    "requested_selector": "1",
+    "registry_version": "1",
+    "model_uri": "models:/taxi-fare-predictor/1",
+    "run_id": "431fcbd5c9784409994a95ea11453a87",
+    "training_params": {
+      "estimator": "lightgbm",
+      "n_trials": "1",
+      "n_estimators": "300",
+      "num_leaves": "244",
+      "max_depth": "9",
+      "learning_rate": "0.07661100707771368",
+      "subsample": "0.6624074561769746",
+      "colsample_bytree": "0.662397808134481",
+      "min_child_samples": "10",
+      "reg_lambda": "2.9154431891537547"
+    }
+  },
+  "generated_at_utc": "2026-10-25T01:46:41.327213+00:00",
+  "test_row_position": 0,
+  "test_file_sha256": "b852164091c9ccf0d5062d7754c5a5dac6fb4c1e8e51cc38d55cda365593d203",
+  "source_card_sha256": "f4c206a79cd29efe874ddb94eeeda88f07c5b253f7e7e4b374f0c1ae69571bd6",
+  "actual_target": 70.0,
+  "feature_order": [
+    "trip_distance",
+    "passenger_count",
+    "trip_duration_min",
+    "PULocationID",
+    "DOLocationID",
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos"
+  ],
+  "feature_values": {
+    "trip_distance": 15.69,
+    "passenger_count": 1.0,
+    "trip_duration_min": 31.2,
+    "PULocationID": 132.0,
+    "DOLocationID": 145.0,
+    "hour": 22.0,
+    "day_of_week": 6.0,
+    "month": 1.0,
+    "is_weekend": 1.0,
+    "is_holiday": 0.0,
+    "hour_sin": -0.5000000000000004,
+    "hour_cos": 0.8660254037844384,
+    "dow_sin": -0.7818314824680299,
+    "dow_cos": 0.6234898018587334
+  },
+  "row_keys": {
+    "PULocationID": "132",
+    "tpep_pickup_datetime": "2024-01-28 22:20:03"
+  }
+}

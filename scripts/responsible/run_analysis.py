@@ -144,8 +144,11 @@ def analyse_problem(problem: str, config: Config, zone_lookup: pd.DataFrame) -> 
         notes += [
             "Demand evaluation uses historical lag features and supports a rolling one-step interpretation; "
             "later test rows use earlier actual counts. Fixed-origin multi-hour accuracy is not established.",
-            "The registered model is evaluated on the configured canonical splits; the separate strict-hour "
-            "audit does not alter this run. Retraining on strict splits remains a separate experiment.",
+            ("The registered model is evaluated on configured splits with strictly separated timestamps; "
+             "this does not establish fixed-origin multi-hour accuracy."
+             if strict else
+             "The registered model is evaluated on configured splits with shared boundary timestamps; "
+             "the separate strict-hour audit does not alter this run. Strict-split retraining is required."),
         ]
     provenance.update({
         "generated_at_utc": datetime.now(UTC).isoformat(),
